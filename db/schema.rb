@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_195032) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_25_195213) do
   create_table "filials", force: :cascade do |t|
     t.integer "child_id"
     t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "marriages", force: :cascade do |t|
+    t.integer "spouse1_id"
+    t.integer "spouse2_id"
+    t.string "marriage_date"
+    t.string "divorce_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
