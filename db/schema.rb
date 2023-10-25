@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_194240) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_25_195032) do
+  create_table "filials", force: :cascade do |t|
+    t.integer "child_id"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "middle_name"
+    t.string "maiden_name"
+    t.string "dob"
+    t.string "dod"
+    t.string "place_of_birth"
+    t.string "phone_number"
+    t.string "address"
+    t.string "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

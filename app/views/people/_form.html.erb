@@ -1,0 +1,67 @@
+<%= form_with(model: person) do |form| %>
+  <% if person.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+        <% person.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.label :middle_name, style: "display: block" %>
+    <%= form.text_field :middle_name %>
+  </div>
+
+  <div>
+    <%= form.label :maiden_name, style: "display: block" %>
+    <%= form.text_field :maiden_name %>
+  </div>
+
+  <div>
+    <%= form.label :dob, style: "display: block" %>
+    <%= form.text_field :dob %>
+  </div>
+
+  <div>
+    <%= form.label :dod, style: "display: block" %>
+    <%= form.text_field :dod %>
+  </div>
+
+  <div>
+    <%= form.label :place_of_birth, style: "display: block" %>
+    <%= form.text_field :place_of_birth %>
+  </div>
+
+  <div>
+    <%= form.label :phone_number, style: "display: block" %>
+    <%= form.text_field :phone_number %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :gender, style: "display: block" %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
