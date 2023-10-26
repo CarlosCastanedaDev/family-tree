@@ -1,52 +1,50 @@
-<div id="<%= dom_id person %>">
-  <p>
-    <strong>First name:</strong>
-    <%= person.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= person.last_name %>
-  </p>
-
-  <p>
-    <strong>Middle name:</strong>
-    <%= person.middle_name %>
-  </p>
-
-  <p>
-    <strong>Maiden name:</strong>
-    <%= person.maiden_name %>
-  </p>
-
-  <p>
-    <strong>Dob:</strong>
-    <%= person.dob %>
-  </p>
-
-  <p>
-    <strong>Dod:</strong>
-    <%= person.dod %>
-  </p>
-
-  <p>
-    <strong>Place of birth:</strong>
-    <%= person.place_of_birth %>
-  </p>
-
-  <p>
-    <strong>Phone number:</strong>
-    <%= person.phone_number %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= person.address %>
-  </p>
-
-  <p>
-    <strong>Gender:</strong>
-    <%= person.gender %>
-  </p>
-
+<div class="border-indigo-500 ml-16">
+  <div class="card w-96 bg-slate-600 shadow-xl border-indigo-500">
+    <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
+    <div class="card-body border-t-2">
+      <h2 class="card-title text-white text-center"><%= person.first_name %> <%= person.last_name %></h2>
+      <h4 class="text-xl">Birthday</h4>
+      <p class="text-white"><%= person.dob %></p>
+      <h4 class="text-xl">Birthplace</h4>
+      <p class="text-white"><%= person.place_of_birth %></p>
+      <% if person.address.present? %>
+        <h4 class="text-xl">Address</h4>
+        <p class="text-white"><%= person.address %></p>
+      <% end %>
+      <% if person.phone_number.present? %>
+        <h4 class="text-xl">Phone Number</h4>
+        <p class="text-white"><%= person.phone_number %></p>
+      <% end %>
+      <hr class="w-full">
+      <% if !person.parents.first.nil? %>
+        <h2 class="text-2xl">Parents:</h2>
+        <% person.parents.each do |parent| %>
+          <a href="<%= parent.id %>">
+            <p class="text-white"> <%= parent.first_name %> <%= parent.last_name %></p>
+          </a>
+        <% end %>
+      <% end %>
+      <% if !person.spouses1.first.nil? || !person.spouses2.first.nil? %>
+        <h2 class="text-2xl">Spouse:</h2>
+        <% person.spouses1.each do |spouse| %>
+          <a href="<%= spouse.id %>">
+            <p class="text-white"><%= spouse.first_name %> <%= spouse.last_name %></p>
+          </a>
+        <% end %>
+        <% person.spouses2.each do |spouse| %>
+          <a href="<%= spouse.id %>">
+            <p class="text-white"><%= spouse.first_name %> <%= spouse.last_name %></p>
+          </a>
+        <% end %>
+      <% end %>
+      <% if !person.children.first.nil? %>
+        <h2 class="text-2xl">Children:</h2>
+        <% person.children.each do |child| %>
+          <a href="<%= child.id %>">
+            <p class="text-white"><%= child.first_name %> <%= child.last_name %></p>
+          </a>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
