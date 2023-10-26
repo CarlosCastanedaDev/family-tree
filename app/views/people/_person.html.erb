@@ -24,6 +24,14 @@
           </a>
         <% end %>
       <% end %>
+      <% if !person.siblings.first.nil? %>
+        <h2 class="text-2xl">Siblings:</h2>
+        <% person.siblings.each do |sibling| %>
+          <a href="<%= sibling.id %>">
+            <p class="text-white"> <%= sibling.first_name %> <%= sibling.last_name %></p>
+          </a>
+        <% end %>
+      <% end %>
       <% if !person.spouses1.first.nil? || !person.spouses2.first.nil? %>
         <h2 class="text-2xl">Spouse:</h2>
         <% person.spouses1.each do |spouse| %>
