@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_25_195213) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_200549) do
   create_table "filials", force: :cascade do |t|
     t.integer "child_id"
     t.integer "parent_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_195213) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "suffix"
   end
 
   create_table "users", force: :cascade do |t|
