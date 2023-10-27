@@ -4,7 +4,7 @@
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
-      <li><a>Family Tree</a></li>
+      <li><%= link_to "Family Tree", tree_path %></li>
       <li><a>History</a></li>
       <li><a>Contact Us</a></li>
     </ul>
@@ -18,7 +18,7 @@
         </label>
         <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
           <li>
-            <a href="<%=  %>" class="justify-between">
+            <a href="/people/<%=  %>" class="justify-between">
               Profile
               <span class="badge">New</span>
             </a>
