@@ -2,7 +2,7 @@
   <div class="flex-1">
     <a href="<%= root_path %>" class="btn btn-ghost normal-case text-xl">Castañeda Family Tree</a>
   </div>
-  <div class="flex-none">
+  <div class="flex">
     <ul class="menu menu-horizontal px-1">
       <li><%= link_to "Family Tree", tree_path %></li>
       <li><a>History</a></li>
@@ -30,9 +30,9 @@
         </ul>
       </div>
     <% else %>
-      <ul class="menu menu-horizontal px-1">
-        <li><%= link_to "Sign In", new_user_session_path, class: "text-red" %></li>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <ul class="flex space-x-4">
+        <li><%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary mr-4" %></li>
       </ul>
     <% end %>
   </div>
