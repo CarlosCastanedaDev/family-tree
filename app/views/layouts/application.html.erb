@@ -14,10 +14,14 @@
   <body>
     <%= render "layouts/header" %>
     <% if notice %>
-      <p class="notice"><%= notice %></p>
+      <div class="flex justify-center">
+        <p class="alert alert-info w-[250px]"><%= notice %></p>
+      </div>
     <% end %>
     <% if alert %>
-      <p class="alert"><%= alert %></p>
+      <div class="flex justify-center">
+        <p class="alert alert-error w-[250px]"><%= alert %></p>
+      </div>
     <% end %>
     <%= yield %>
     <%= render "layouts/footer" %>
