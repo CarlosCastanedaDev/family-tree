@@ -22,6 +22,10 @@ class User < ApplicationRecord
 
   belongs_to :person, optional: true
 
+
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, on: :create
+  validates :password, confirmation: true, if: -> { password.present? }
+
+  mount_uploader :avatar_url, AvatarUrlUploader
 end
