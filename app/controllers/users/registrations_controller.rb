@@ -20,18 +20,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-   def update
-     @user = current_user
+  #  def update
+  #    @user = current_user
 
-  if @user.update(account_update_params)
+  # if @user.update(account_update_params)
 
-    redirect_to root_path
-  else
-    # Output validation errors for debugging
-    puts @user.errors.full_messages
-    render :edit
-  end
-   end
+  #   redirect_to root_path
+  # else
+  #   # Output validation errors for debugging
+  #   puts @user.errors.full_messages
+  #   render :edit
+  # end
+  #  end
 
   # DELETE /resource
   # def destroy
@@ -75,6 +75,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:email,:password, :password_confirmation, :avatar_url)
+    params.require(:user).permit(:email,:password, :password_confirmation, :avatar_url, :current_password)
   end
 end
