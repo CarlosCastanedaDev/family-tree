@@ -87,6 +87,7 @@ gem "table_print"
 gem "carrierwave"
 gem "cloudinary"
 gem "mail_form"
+gem 'simple_form'
 
 group :development do
   gem "web-console"

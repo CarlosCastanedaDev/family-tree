@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "welcome#index"
   get '/family_tree' => 'people#tree', as: :tree
-  get '/contact_us' => 'application#contact', as: :contact
+  get '/contact_us' => 'application#contact_us', as: :contact
 end
