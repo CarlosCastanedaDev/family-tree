@@ -75,12 +75,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
-    port: 587,
+    port: 465, #587,
     domain: 'gmail.com',
-    authentication: 'plain',
-    enable_starttls_auto: true,
+    authentication: :login,
+    enable_starttls_auto: false,
+    ssl: true,
     user_name: ENV['GMAIL_USERNAME'],
-    password: ENV['GMAIL_PASSWORD']
+    password: ENV['GMAIL_PASSWORD'],
+    open_timeout: 30, # Adjust this value
+    read_timeout: 30, # Adjust this value
   }
   require "carrierwave"
   require "carrierwave/orm/activerecord"

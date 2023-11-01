@@ -1,2 +1,16 @@
 <h1>Contact Us</h1>
-<form action=""></form>
+<%= form_with(model: @contact, url: contact_forms_path, data: { turbo: false }) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  <div>
+    <%= form.label :message %>
+    <%= form.text_area :message, { rows: 3 } %>
+  </div>
+  <%= form.button %>
+<% end %>
