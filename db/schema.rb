@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_200549) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_01_160623) do
+  create_table "contact_forms", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "filials", force: :cascade do |t|
     t.integer "child_id"
     t.integer "parent_id"

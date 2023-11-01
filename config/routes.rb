@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :marriages
   resources :people
   resources :filials
+  resources :contact_forms, only: [:create]
   devise_for :users, controllers: { registrations: "users/registrations" }
 
    # Add a custom route for updating user profiles
