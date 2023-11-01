@@ -2,7 +2,7 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
   <div class="flex justify-center">
-    <div class="form-control w-full max-w-xs border border-white p-4 rounded-xl space-y-12">
+    <div class="form-control w-full max-w-sm border border-white p-4 rounded-xl space-y-12">
       <%= f.input :email,
                 required: true,
                 autofocus: true,
