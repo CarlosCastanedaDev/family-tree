@@ -64,7 +64,7 @@ class PeopleController < ApplicationController
 
     def birthdays
       current_month = Date.today.strftime("%m")
-      @bdays = Person.where("SUBSTR(dob, 1, 2) = ?", current_month)
+      @bdays = Person.where("SUBSTR(dob, 1, 2) = ?", current_month).order(Arel.sql("CAST(SUBSTR(dob, 4, 2) AS INTEGER)"))
       render "layouts/birthdays"
     end
 
