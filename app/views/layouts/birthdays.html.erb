@@ -1,0 +1,19 @@
+<h1 class="text-3xl text-white mx-auto my-8 text-center">Birthdays this Month 🎂</h1>
+<div class="flex flex-wrap justify-center items-center w-3/4 mx-auto">
+  <% @bdays.each do |person| %>
+    <div class="border-indigo-500 m-4">
+      <div class="card w-72 bg-slate-600 shadow-xl border-indigo-500">
+        <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
+        <div class="card-body border-t-2">
+          <h2 class="card-title text-white justify-center"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %>
+          </h2>
+          <h3 class="card-body justify-center text-center text-xl text-white"><%= person.dob %> </h3>
+          <div class="card-actions justify-center">
+            <a href="<%= person_path(person.id) %>"><button class="btn btn-primary">Details</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</ul>
+</div>

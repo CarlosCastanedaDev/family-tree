@@ -62,6 +62,12 @@ class PeopleController < ApplicationController
     render "people/family_tree"
     end
 
+    def birthdays
+      current_month = Date.today.strftime("%m")
+      @bdays = Person.where("SUBSTR(dob, 1, 2) = ?", current_month)
+      render "layouts/birthdays"
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
@@ -72,4 +78,5 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(:first_name, :last_name, :middle_name, :maiden_name, :dob, :dod, :place_of_birth, :phone_number, :address, :gender)
     end
+
 end
