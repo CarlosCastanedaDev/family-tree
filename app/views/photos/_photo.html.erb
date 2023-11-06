@@ -1,22 +1,17 @@
-<div id="<%= dom_id photo %>">
-  <p>
-    <strong>Owner:</strong>
-    <%= photo.owner_id %>
-  </p>
-
-  <p>
-    <strong>Image url:</strong>
-    <%= photo.image_url %>
-  </p>
-
-  <p>
-    <strong>Caption:</strong>
-    <%= photo.caption %>
-  </p>
-
+<div id="<%= dom_id photo %>" class="border-2 border-primary max-w-md p-4 max-h-[500px]">
   <p>
     <strong>Location:</strong>
     <%= photo.location %>
   </p>
-
+  <img src="<%= photo.image_url.url %>" alt="" width="300px">
+  <p class="text-white text-lg text-center mb-8">
+    <%= photo.caption %>
+  </p>
+  <p class="text-center">
+    <strong>Posted by:</strong>
+    <%= photo.owner_id %>
+  </p>
+  <p class="text-center">
+    <%= link_to "Show this photo", photo %>
+  </p>
 </div>

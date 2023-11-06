@@ -12,4 +12,6 @@
 #
 class Photo < ApplicationRecord
     belongs_to :user, optional: true
+
+    mount_uploader :image_url, ImageUrlUploader
 end
