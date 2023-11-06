@@ -80,7 +80,6 @@ gem "awesome_print"
 gem "devise"       # to be removed
 gem "dotenv-rails"
 gem "faker"
-gem "htmlbeautifier"
 gem "http"
 gem "sqlite3", "~> 1.4"
 gem "table_print"
@@ -102,6 +101,7 @@ group :development do
   gem "rufo"
   gem "specs_to_readme"
   gem "web_git"
+  gem 'htmlbeautifier'
 end
 
 group :development, :test do
