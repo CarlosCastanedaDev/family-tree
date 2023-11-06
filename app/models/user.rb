@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   belongs_to :person, optional: true
 
+  has_many :photos, class_name: "photo", foreign_key: "owner_id"
+
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, on: :create
