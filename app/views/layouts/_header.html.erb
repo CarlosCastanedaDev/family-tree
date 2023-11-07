@@ -1,15 +1,21 @@
 <div class="navbar bg-base-100">
   <div class="flex-1">
-    <a href="<%= root_path %>" class="btn btn-ghost normal-case text-xl">Castañeda Family Tree</a>
+    <a href="<%= root_path %>" class="btn btn-ghost normal-case text-sm md:text-xl">Castañeda Family Tree</a>
   </div>
-  <div class="flex">
-    <ul class="menu menu-horizontal px-1">
+  <div class="flex flex-row-reverse md:flex-row items-center">
+    <div class="menu-trigger md:hidden">
+      <button class="btn btn-ghost normal-case text-xl mr-4" onclick="toggleDropdown(this)">
+        <%= image_tag("burger-menu.svg", class: "max-h-[40px] fill-white") %>
+      </button>
+    </div>
+    <ul id="dropdown-menu" class="hidden md:flex menu menu-horizontal px-1 mr-4">
       <li><%= link_to "Family Tree", tree_path %></li>
+      <li><%= link_to "Photos", photos_path %></li>
       <li><%= link_to "Birthdays", birthdays_path %></li>
       <li><%= link_to "Contact Us", contact_path %></li>
     </ul>
     <% if user_signed_in? %>
-      <p class="pr-4"><%= current_user.email %></p>
+      <p class="hidden md:block pr-4"><%= current_user.email %></p>
       <div class="dropdown dropdown-end pr-4">
         <label tabindex="0" class="btn btn-primary btn-circle avatar">
           <div class="w-10 rounded-full">
@@ -41,6 +47,22 @@
     <% end %>
   </div>
 </div>
+<script>
+  function toggleDropdown(button) {
+    var dropdown = document.getElementById("dropdown-menu");
+    var image = button.querySelector('img');
+
+    if (dropdown.style.display === "block") {
+      dropdown.style.display = "none";
+      // Change the SVG back to the burger menu
+      image.src = "<%= asset_path('burger-menu.svg') %>";
+    } else {
+      dropdown.style.display = "block";
+      // Change the SVG to an "X"
+      image.src = "<%= asset_path('close.svg') %>"; // Replace with your "X" icon
+    }
+  }
+</script>
 <%# <div class="navbar col-span-1 shadow-lg xl:col-span-3 bg-neutral-focus text-neutral-content rounded-box">
   <div class="flex-none">
     <label for="my-drawer" class="btn btn-square btn-ghost drawer-button">

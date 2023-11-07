@@ -19,6 +19,7 @@
 #
 class Person < ApplicationRecord
   has_one :user
+  has_many :photos, class_name: "Photo", foreign_key: "owner_id", dependent: :destroy
 
   has_many :parent_relationships, class_name: "Filial", foreign_key: :child_id, dependent: :destroy
   has_many :parents, through: :parent_relationships, source: :parent

@@ -1,11 +1,11 @@
-class AvatarUrlUploader < CarrierWave::Uploader::Base
+class ImageUrlUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave
 
   # Choose what kind of storage to use for this uploader:
-  #storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -37,7 +37,7 @@ class AvatarUrlUploader < CarrierWave::Uploader::Base
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
    def extension_allowlist
-     %w(jpg jpeg gif png)
+     %w(jpg jpeg gif png webp)
    end
 
   # Override the filename of the uploaded files:
