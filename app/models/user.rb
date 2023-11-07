@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   belongs_to :person, optional: true
 
-  has_many :photos, class_name: "photo", foreign_key: "owner_id"
+  has_many :photos, class_name: "Photo", foreign_key: "owner_id"
 
 
   validates :email, presence: true, uniqueness: true

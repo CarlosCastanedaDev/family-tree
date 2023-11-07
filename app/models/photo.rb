@@ -11,7 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Photo < ApplicationRecord
-    belongs_to :user, optional: true
+    #belongs_to :user, optional: true
+    belongs_to :owner, required: true, class_name: "Person", foreign_key: "owner_id"
 
     mount_uploader :image_url, ImageUrlUploader
 end

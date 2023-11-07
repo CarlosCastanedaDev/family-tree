@@ -22,6 +22,7 @@ class PhotosController < ApplicationController
   # POST /photos or /photos.json
   def create
     @photo = Photo.new(photo_params)
+    @photo.owner_id = current_user.person.id
 
     respond_to do |format|
       if @photo.save

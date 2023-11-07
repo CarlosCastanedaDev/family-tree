@@ -1,4 +1,4 @@
-<div id="<%= dom_id photo %>" class="border-2 border-primary max-w-md p-4 max-h-[500px]">
+<div id="<%= dom_id photo %>" class="flex flex-col items-center justify-center min-w-max border-2 border-primary max-w-md p-4 m-4 max-h-fit">
   <p>
     <strong>Location:</strong>
     <%= photo.location %>
@@ -9,8 +9,9 @@
   </p>
   <p class="text-center">
     <strong>Posted by:</strong>
-    <%= photo.owner_id %>
+    <%= photo.owner.first_name %> <%= photo.owner.last_name %> <%= photo.owner.suffix %>
   </p>
+  <br>
   <p class="text-center">
     <%= link_to "Show this photo", photo %>
   </p>

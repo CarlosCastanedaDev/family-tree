@@ -1,14 +1,20 @@
 <%= simple_form_for(@photo) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div class="form-inputs">
-    <%= f.input :owner_id %>
-    <%= f.input :image_url,
-              as: :file %>
-    <%= f.input :caption %>
-    <%= f.input :location %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+  <div class="flex justify-center">
+    <div class="form-control w-full max-w-sm border border-white p-4 rounded-xl space-y-12">
+      <%= f.hidden_field :owner_id, 
+              input_html: { value: current_user.id } %>
+      <%= f.input :image_url,
+              as: :file,
+              input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
+      <%= f.input :caption,
+              input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
+      <%= f.input :location,
+              input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
+      <div class="form-actions flex justify-center">
+        <%= f.button :submit, "Upload Photo", class: "btn btn-primary my-4" %>
+      </div>
+    </div>
+  <% end %>
+</div>
