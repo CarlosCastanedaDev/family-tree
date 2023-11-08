@@ -1,5 +1,5 @@
-<div class="flex flex-col items-center">
-  <ul class="flex">
+<div class="flex flex-col justify-center items-center w-full">
+  <ul class="flex flex-wrap justify-center w-full md:space-x-8">
     <%= render "card", person: @main_node %>
     <% if !@main_node.spouses1.first.nil? || !@main_node.spouses2.first.nil? %>
       <% @main_node.spouses1.each do |spouse| %>
@@ -10,14 +10,15 @@
       <% end %>
     <% end %>
   </ul>
-  <h2 class="text-2xl">Children:</h2>
-  <div class="flex flex-wrap">
-    <ul class="flex">
-      <% if !@main_node.children.first.nil? %>
-        <% @main_node.children.each do |child| %>
-          <%= render "card", person: child %>
-        <% end %>
+</div>
+<h2 class="text-2xl text-center">Children:</h2>
+<div class="flex flex-wrap">
+  <ul class="flex flex-wrap justify-center w-full md:space-x-8">
+    <% if !@main_node.children.first.nil? %>
+      <% @main_node.children.each do |child| %>
+        <%= render "card", person: child %>
       <% end %>
-    </ul>
-  </div>
+    <% end %>
+  </ul>
+</div>
 </div>

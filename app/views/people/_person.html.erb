@@ -1,7 +1,7 @@
-<div class="border-indigo-500 ml-16">
-  <div class="card w-96 bg-slate-600 shadow-xl border-indigo-500">
+<div class="flex justify-center border-indigo-500">
+  <div class="card w-3/4 bg-slate-600 shadow-xl border-indigo-500">
     <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
-    <div class="card-body border-t-2">
+    <div class="card-body flex flex-col items-center border-t-2">
       <h2 class="card-title text-white text-center"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %></h2>
       <h4 class="text-xl">Birthday</h4>
       <p class="text-white"><%= person.dob %></p>

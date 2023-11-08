@@ -1,12 +1,12 @@
 <li>
-  <div class="flex flex-wrap justify-center items-center w-3/4 mx-auto">
-    <div class="border-indigo-500 m-4">
-      <div class="card w-96 bg-slate-600 shadow-xl border-indigo-500">
+  <div class="flex flex-wrap justify-center items-center w-full">
+    <div class="border-indigo-500 flex justify-center my-4">
+      <div class="card w-full bg-slate-600 shadow-xl border-indigo-500">
         <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
         <div class="card-body border-t-2">
-          <h2 class="card-title text-white"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %>
+          <h2 class="card-title flex justify-center text-white"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %>
           </h2>
-          <div class="card-actions justify-end">
+          <div class="card-actions justify-center">
             <a href="<%= person_path(person.id) %>"><button class="btn btn-primary">Details</button></a>
           </div>
         </div>
