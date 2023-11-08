@@ -1,16 +1,23 @@
-<div class="flex flex-wrap justify-center items-center w-3/4 mx-auto">
-  <% @people.each do |person| %>
-    <div class="border-indigo-500 m-4">
-      <div class="card w-96 bg-slate-600 shadow-xl border-indigo-500">
-        <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
-        <div class="card-body border-t-2">
-          <h2 class="card-title text-white"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %>
-          </h2>
-          <div class="card-actions justify-end">
-            <a href="<%= person_path(person.id) %>"><button class="btn btn-primary">Details</button></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="flex flex-col items-center">
+  <ul class="flex">
+    <%= render "card", person: @main_node %>
+    <% if !@main_node.spouses1.first.nil? || !@main_node.spouses2.first.nil? %>
+      <% @main_node.spouses1.each do |spouse| %>
+        <%= render "card", person: spouse %>
+      <% end %>
+      <% @main_node.spouses2.each do |spouse| %>
+        <%= render "card", person: spouse %>
+      <% end %>
+    <% end %>
+  </ul>
+  <h2 class="text-2xl">Children:</h2>
+  <div class="flex flex-wrap">
+    <ul class="flex">
+      <% if !@main_node.children.first.nil? %>
+        <% @main_node.children.each do |child| %>
+          <%= render "card", person: child %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>
