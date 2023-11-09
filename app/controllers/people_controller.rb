@@ -64,11 +64,9 @@ class PeopleController < ApplicationController
     render "people/family_tree"
     end
 
-    def salvador_family
-    @people = Person.includes(:parents).all
-    @main_node = Person.find_by(id: 1)
-    @spouse = @main_node.spouses2
-    render "people/salvador_family"
+    def family  
+      @main_node = Person.find_by(id: params[:id])
+      render "people/family"
     end
 
     def birthdays

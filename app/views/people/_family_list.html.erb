@@ -5,7 +5,7 @@
     </div>
     <h2 class="w-full max-w-[220px] text-white pl-4"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %></h2>
     <div class="">
-      <%= link_to "Family", "#{person.first_name.downcase}_family", class: "btn btn-xs btn-primary ml-4" %>
+      <%= link_to "Family", "family/#{person.id}", class: "btn btn-xs btn-primary ml-4" %>
     </div>
   </div>
 </li>
