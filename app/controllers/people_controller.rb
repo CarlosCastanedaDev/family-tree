@@ -59,9 +59,16 @@ class PeopleController < ApplicationController
 
   def tree
     @people = Person.includes(:parents).all
-    @main_node = Person.find_by(id: 1)
+    @main_node = Person.find_by(id: 12)
     @spouse = @main_node.spouses2
     render "people/family_tree"
+    end
+
+    def salvador_family
+    @people = Person.includes(:parents).all
+    @main_node = Person.find_by(id: 1)
+    @spouse = @main_node.spouses2
+    render "people/salvador_family"
     end
 
     def birthdays

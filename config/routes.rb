@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/family_tree' => 'people#tree', as: :tree
   get "/birthdays" => "people#birthdays", as: :birthdays
   get '/contact_us' => 'application#contact_us', as: :contact
+  get '/salvador_family' => 'people#salvador_family'
 end

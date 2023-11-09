@@ -1,6 +1,6 @@
-<div class="my-16">
+<div class="mt-32">
   <div class="px-4 sm:px-8 max-w-5xl m-auto">
-    <ul class="border border-slate-700 p-2 rounded overflow-hidden shadow-md">
+    <ul class="border border-gray-200 rounded overflow-hidden shadow-md">
       <%= render "list", person: @main_node %>
       <% if !@main_node.spouses1.first.nil? || !@main_node.spouses2.first.nil? %>
         <% @main_node.spouses1.each do |spouse| %>
@@ -13,7 +13,7 @@
       <li class="text-2xl text-center">Children:</li>
       <% if !@main_node.children.first.nil? %>
         <% @main_node.children.each do |child| %>
-          <%= render "family_list", person: child %>
+          <%= render "list", person: child %>
         <% end %>
       <% end %>
     </ul>
