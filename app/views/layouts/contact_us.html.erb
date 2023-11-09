@@ -1,7 +1,7 @@
 <h1 class="text-3xl text-white mx-auto my-8 text-center">Contact Us</h1>
 <%= form_with(model: @contact, url: contact_forms_path, data: { turbo: false }) do |form| %>
   <div class="flex justify-center mb-8">
-    <div class="form-control w-full max-w-sm border border-white p-8 rounded-xl space-y-12">
+    <div class="form-control w-full max-w-sm border border-slate-700 p-8 rounded-xl space-y-12  shadow-lg shadow-indigo-500/30">
       <div>
         <%= form.label :name %>
         <%= form.text_field :name, class: "input input-bordered input-primary w-full max-w-xs placeholder:text-slate-600" %>
@@ -15,7 +15,7 @@
         <%= form.text_area :message, class: "input input-bordered input-primary w-full h-40 max-w-xs placeholder:text-slate-600"  %>
       </div>
       <div class="form-actions flex justify-center">
-        <%= form.button "Send", class: "btn btn-primary my-4" %>
+        <%= form.button "Send", class: "btn btn-primary my-4 shadow-lg shadow-indigo-500/40" %>
       </div>
     </div>
   <% end %>
