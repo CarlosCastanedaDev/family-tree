@@ -17,10 +17,10 @@
     <% if user_signed_in? %>
       <p class="hidden md:block pr-4"><%= current_user.email %></p>
       <div class="dropdown dropdown-end pr-4">
-        <label tabindex="0" class="btn btn-primary btn-circle avatar">
-          <div class="w-10 rounded-full">
+        <label tabindex="0" class="btn btn-primary btn-circle avatar" onclick="toggleAvatar()">
+          <div id="avatar_container" class="w-10 rounded-full">
             <% if current_user.avatar_url.present? %>
-              <%= image_tag(current_user.avatar_url.url) %>
+              <%= image_tag(current_user.avatar_url.url, id: "avatar_image") %>
             <% end %>
           </div>
         </label>
@@ -49,18 +49,20 @@
 </div>
 <script>
   function toggleDropdown(button) {
-    var dropdown = document.getElementById("dropdown-menu");
-    var image = button.querySelector('img');
-
-    if (dropdown.style.display === "block") {
-      dropdown.style.display = "none";
-      // Change the SVG back to the burger menu
-      image.src = "<%= asset_path('burger-menu.svg') %>";
-    } else {
-      dropdown.style.display = "block";
-      // Change the SVG to an "X"
-      image.src = "<%= asset_path('close.svg') %>"; // Replace with your "X" icon
-    }
+  var dropdown = document.getElementById("dropdown-menu");
+  var avatarContainer = document.getElementById("avatar_container"); <%# Get the avatar container by its id %>
+  var image = button.querySelector('img');
+  if (dropdown.style.display === "block") {
+  dropdown.style.display = "none";
+  avatarContainer.classList.remove('hidden'); // Show the avatar container
+  // Change the SVG back to the burger menu
+  image.src = "<%= asset_path('burger-menu.svg') %>";
+  } else {
+  dropdown.style.display = "block";
+  avatarContainer.classList.add('hidden'); // Hide the avatar container
+  // Change the SVG to the close icon
+  image.src = "<%= asset_path('close.svg') %>";
+  }
   }
 </script>
 <%# <div class="navbar col-span-1 shadow-lg xl:col-span-3 bg-neutral-focus text-neutral-content rounded-box">
