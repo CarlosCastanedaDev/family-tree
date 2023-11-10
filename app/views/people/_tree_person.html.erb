@@ -1,0 +1,27 @@
+<div class="<%= 'border border-slate-700 p-2' unless person.parents.any? { |parent| parent.parents.include?(@main_node) } %>">
+  <li>
+    <%= render "list", person: person %>
+    <% if person.spouses1.any? %>
+      <div class="flex justify-center items-center">
+        <%= image_tag ("marriage.svg"), class: "max-h-[40px]" %>
+      </div>
+      <% person.spouses1.each do |spouse| %>
+        <%= render "list", person: spouse %>
+      <% end %>
+    <% end %>
+    <% if person.spouses2.any? %>
+      <div class="flex justify-center items-center">
+        <%= image_tag ("marriage.svg"), class: "max-h-[40px]" %>
+      </div>
+      <% person.spouses2.each do |spouse| %>
+        <%= render "list", person: spouse %>
+      <% end %>
+    <% end %>
+    <% if person.children.any? %>
+      <li class="text-xl text-center pb-2">Children</li>
+      <% person.children.each do |child| %>
+        <%= render "tree_person", person: child %>
+      <% end %>
+    <% end %>
+  </li>
+</div>

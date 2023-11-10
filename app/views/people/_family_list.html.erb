@@ -1,0 +1,11 @@
+<li>
+  <div class="flex items-center space-x-2 my-4 mx-1">
+    <div class="w-[50px] bg-slate-600 shadow-xl border-indigo-500 rounded-full">
+      <figure><img src="https://robohash.org/<%= person.id %>" class="rounded-full" /></figure>
+    </div>
+    <h2 class="w-full max-w-[260px] text-white pl-4"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %></h2>
+    <div class="items-end">
+      <%= link_to(image_tag("chevron.svg", class: "max-h-[25px]"), "family/#{person.id}", class: "") %>
+    </div>
+  </div>
+</li>
