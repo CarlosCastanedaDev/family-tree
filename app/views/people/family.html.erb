@@ -1,3 +1,9 @@
+<div class="text-sm breadcrumbs ml-4 mt-8">
+  <ul>
+    <li><a href="/family_tree">Home</a></li> 
+    <li><a><%= @main_node.first_name %>'s Family</a></li> 
+  </ul>
+</div>
 <div class="hidden md:block">
   <div class="flex flex-col justify-center items-center w-full">
     <ul class="flex flex-wrap justify-center w-full md:space-x-8">
@@ -25,7 +31,7 @@
 </div>
 <!-- family_tree.html.erb -->
 <div class="block md:hidden">
-  <div class="my-16">
+  <div class="mb-16">
     <div class="px-4 sm:px-8 max-w-5xl m-auto">
       <ul class="border border-slate-700 rounded overflow-hidden shadow-md">
         <%= render "tree_person", person: @main_node %>

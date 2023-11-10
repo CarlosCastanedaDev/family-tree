@@ -1,3 +1,4 @@
+<div class="hidden md:block">
 <h1 class="text-3xl text-white mx-auto my-8 text-center">Birthdays this Month 🎂</h1>
 <div class="flex flex-wrap justify-center items-center w-full mx-auto">
   <% @bdays.each do |person| %>
@@ -20,3 +21,17 @@
   <% end %>
 </ul>
 </div>
+</div>
+<%# Mobile View %>
+<div class="md:hidden my-16">
+  <div class="text-6xl mx-auto text-center">🎂</div>
+<h1 class="text-3xl text-white m-auto my-8 text-center">Birthdays this Month</h1>
+<div class="px-4 max-w-5xl m-auto">
+  <ul class="border border-slate-700 px-2 py-6 rounded overflow-hidden shadow-md">
+  <% @bdays.each_with_index do |person, index| %>
+  <%= render "bday_list", person: person, index: index %>
+  <% end %>
+</ul>
+</div>
+</div>
+

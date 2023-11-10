@@ -1,0 +1,18 @@
+<li>
+  <div class="flex items-center justify-between my-4 mx-1 min-h-[60px]">
+    <div class="w-[50px] bg-slate-600 shadow-xl border-indigo-500 rounded-full">
+      <figure><img src="https://robohash.org/<%= person.id %>" class="rounded-full" /></figure>
+    </div>
+    <div>
+
+    <h2 class="w-full min-w-[240px] text-white text-center px-4"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %></h2>
+    <div class="text-center"><%= person.dob %></div>
+    </div>
+    <div class="mx-auto">
+      <%= link_to(image_tag("chevron.svg", class: "max-h-[25px]"), person_path(person.id), class: "") %>
+    </div>
+  </div>
+    <% unless index == @bdays.length - 1 %>
+    <hr class="flex my-6 mx-auto w-4/5 bg-gray-500">
+    <% end %>
+</li>
