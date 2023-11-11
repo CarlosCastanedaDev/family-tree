@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_06_162119) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_11_192857) do
   create_table "contact_forms", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -51,6 +51,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_06_162119) do
     t.string "suffix"
   end
 
+  create_table "people_photos", force: :cascade do |t|
+    t.integer "photo_id", null: false
+    t.integer "person_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_people_photos_on_person_id"
+    t.index ["photo_id"], name: "index_people_photos_on_photo_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.integer "owner_id"
     t.string "image_url"
@@ -75,4 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_06_162119) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "people_photos", "people"
+  add_foreign_key "people_photos", "photos"
 end

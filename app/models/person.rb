@@ -32,6 +32,9 @@ class Person < ApplicationRecord
   has_many :marriages2, class_name: "Marriage", foreign_key: "spouse2_id"
   has_many :spouses2, through: :marriages2, source: :spouse1
 
+  has_many :people_photos
+  has_many :tagged_photos, through: :people_photos, source: :photo
+
   # has_many :siblings, through: :parents, source: :children
 
   # has_many :sibling_relationships, through: :parents, source: :children

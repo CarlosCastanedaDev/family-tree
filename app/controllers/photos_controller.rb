@@ -13,6 +13,7 @@ class PhotosController < ApplicationController
   # GET /photos/new
   def new
     @photo = Photo.new
+    @people = Person.all
   end
 
   # GET /photos/1/edit
@@ -20,20 +21,26 @@ class PhotosController < ApplicationController
   end
 
   # POST /photos or /photos.json
-  def create
-    @photo = Photo.new(photo_params)
-    @photo.owner_id = current_user.person.id
+def create
+  @photo = Photo.new(photo_params)
+  @photo.owner_id = current_user.person.id
 
-    respond_to do |format|
-      if @photo.save
-        format.html { redirect_to photo_url(@photo), notice: "Photo was successfully created." }
-        format.json { render :show, status: :created, location: @photo }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
+  respond_to do |format|
+    if @photo.save
+      format.html { redirect_to photo_url(@photo), notice: "Photo was successfully created." }
+      format.json { render :show, status: :created, location: @photo }
+    else
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @photo.errors, status: :unprocessable_entity }
     end
   end
+end
+
+private
+
+def photo_params
+  params.require(:photo).permit(:image_url, :caption, :location, :owner_id, person_ids: [])
+end
 
   # PATCH/PUT /photos/1 or /photos/1.json
   def update
@@ -66,6 +73,6 @@ class PhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:owner_id, :image_url, :caption, :location)
+      params.require(:photo).permit(:owner_id, :image_url, :caption, :location, person_ids: [])
     end
 end

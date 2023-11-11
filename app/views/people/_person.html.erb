@@ -127,4 +127,16 @@
       </div>
     </div>
   </div>
+  <% if person.tagged_photos.any? %>
+    <h2 class="text-2xl text-center my-8">Tagged Photos:</h2>
+    <div class="grid grid-cols-3 mx-4">
+      <% person.tagged_photos.each do |photo| %>
+        <div class="w-26 h-26 overflow-hidden border border-gray-800">
+          <%= link_to photo_path(photo) do %>
+            <img src="<%= photo.image_url %>" alt="Photo" class="w-full h-full object-cover">
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
