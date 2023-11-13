@@ -59,7 +59,7 @@ class PeopleController < ApplicationController
 
   def tree
     @people = Person.includes(:parents).all
-    @main_node = Person.find_by(id: 11)
+    @main_node = Person.find_by(id: 12)
     @children = @main_node.children.sort_by { |child| child.dob.split("/").last.to_i }
     render "people/family_tree"
     end

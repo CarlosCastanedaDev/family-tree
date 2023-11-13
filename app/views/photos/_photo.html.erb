@@ -1,18 +1,20 @@
-<div id="<%= dom_id photo %>" class="flex flex-col items-center justify-center min-w-max border-2 border-primary max-w-md p-4 m-4 max-h-fit">
-  <p>
-    <strong>Location:</strong>
-    <%= photo.location %>
-  </p>
-  <img src="<%= photo.image_url.url %>" alt="" width="300px">
-  <p class="text-white text-lg text-center mb-8">
-    <%= photo.caption %>
-  </p>
-  <p class="text-center">
-    <strong>Posted by:</strong>
-    <%= photo.owner.first_name %> <%= photo.owner.last_name %> <%= photo.owner.suffix %>
-  </p>
-  <br>
-  <p class="text-center">
-    <%= link_to "Show this photo", photo %>
-  </p>
+<div id="<%= dom_id photo %>" class="flex flex-col items-center justify-center m-4 max-h-fit">
+  <div class="w-full flex justify-center">
+    <img src="<%= photo.image_url.url %>" class="">
+  </div>
+  <div class="border-2 border-primary p-2 mt-2 w-full">
+    <% if photo.location.present? %>
+      <p>
+        <strong>Location:</strong>
+        <%= photo.location %>
+      </p>
+    <% end %>
+    <p class="text-white text-lg mb-8">
+      <%= photo.caption %>
+    </p>
+    <p class="">
+      <strong>Posted by:</strong>
+      <%= photo.owner.first_name %> <%= photo.owner.last_name %> <%= photo.owner.suffix %>
+    </p>
+  </div>
 </div>

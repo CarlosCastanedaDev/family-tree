@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 
   # GET /photos or /photos.json
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order(created_at: :desc)
   end
 
   # GET /photos/1 or /photos/1.json
@@ -34,12 +34,6 @@ def create
       format.json { render json: @photo.errors, status: :unprocessable_entity }
     end
   end
-end
-
-private
-
-def photo_params
-  params.require(:photo).permit(:image_url, :caption, :location, :owner_id, person_ids: [])
 end
 
   # PATCH/PUT /photos/1 or /photos/1.json

@@ -5,19 +5,26 @@
     <div class="form-control w-full max-w-sm mx-4 border border-white p-4 rounded-xl space-y-12">
       <%= f.hidden_field :owner_id, 
               input_html: { value: current_user.id } %>
-      <%= f.label :image_url, "Choose an image" %>
       <%= f.input :image_url,
+              label: "Choose an image",
               as: :file,
               input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
       <%= f.input :caption,
               input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
       <%= f.input :location,
               input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
-      <%= f.label :location, "Tag People" %>
-      <%= f.collection_check_boxes :person_ids, Person.all, :id, :first_name %>
+      <%= f.label :person_ids, "Tag People", class: "text-xl" %>
+      <%= f.collection_check_boxes :person_ids, Person.all.order(:first_name, :asc), :id, :first_name do |b| %>
+        <div class="flex items-center">
+          <%= b.check_box class: "checkbox checkbox-primary" %>
+          <%= b.label class: "text-xl pl-4" do %>
+            <%=  "#{b.object.first_name} #{b.object.last_name} #{b.object.suffix}"  %>
+          <% end %>
+        </div>
+      <% end %>
       <div class="form-actions flex justify-center">
         <%= f.button :submit, "Upload Photo", class: "btn btn-primary my-4" %>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
