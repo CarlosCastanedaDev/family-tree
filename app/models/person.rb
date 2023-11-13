@@ -35,6 +35,8 @@ class Person < ApplicationRecord
   has_many :people_photos
   has_many :tagged_photos, through: :people_photos, source: :photo
 
+  has_many  :comments, class_name: "Comment", foreign_key: "author_id", dependent: :destroy
+
   # has_many :siblings, through: :parents, source: :children
 
   # has_many :sibling_relationships, through: :parents, source: :children
