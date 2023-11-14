@@ -12,11 +12,10 @@
                 input_html: { autocomplete: "current-password", class: "input input-bordered input-primary w-full max-w-xs placeholder:text-slate-600" },
                 label: "Password" %>
       <% if devise_mapping.rememberable? %>
-        <%= f.input :remember_me, 
-              input_html: { class: "checkbox checkbox-primary" }, 
-              as: :boolean,
-              label: false %>
-        <%= f.label :remember_me, "Remember me", class: "pl-4" %>
+        <div class="flex justify-center items-center">
+          <%= f.check_box :remember_me, class: "form-checkbox checkbox checkbox-primary" %>
+          <%= f.label :remember_me, "Remember me", class: "ml-2" %>
+        </div>
       <% end %>
       <div class="form-actions flex justify-center">
         <%= f.button :submit, "Log in", class: "btn btn-primary my-4 shadow-lg shadow-indigo-700/40" %>
