@@ -5,13 +5,13 @@
     <div class="form-inputs">
       <%= f.hidden_field :photo_id %>
       <%= f.input :body,
-          label: "Add Comment",
+          label: false,
           :as => :text, 
-          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs mt-6", rows: 10, cols: 50 } %>
       <%= f.hidden_field :author_id %>
     </div>
     <div class="form-actions flex justify-center mt-12 mb-8">
-      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.button :submit, "Add Comment", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
