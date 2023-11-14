@@ -1,15 +1,16 @@
 # == Schema Information
 #
-# Table name: people_photos
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  photo_id   :integer          not null
-#  person_id  :integer          not null
+#  photo_id   :integer
+#  body       :text
+#  author_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 require 'rails_helper'
 
-RSpec.describe PeoplePhoto, type: :model do
+RSpec.describe Comment, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

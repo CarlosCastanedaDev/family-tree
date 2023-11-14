@@ -59,7 +59,7 @@
   </div>
 </div>
 <%# Mobile View %>
-<div class="block md:hidden">
+<div class="block md:hidden mb-4">
   <div class="flex items-center justify-center space-x-2 my-12 mx-1">
     <div class="w-[120px] bg-slate-600 shadow-xl border-indigo-500 rounded-full">
       <figure><img src="https://robohash.org/<%= person.id %>" class="rounded-full" /></figure>
@@ -129,11 +129,11 @@
   </div>
   <% if person.tagged_photos.any? %>
     <h2 class="text-2xl text-center my-8">Tagged Photos:</h2>
-    <div class="grid grid-cols-3 mx-4">
+    <div class="grid grid-cols-3 mx-4 mb-16">
       <% person.tagged_photos.order(created_at: :desc).each do |photo| %>
-        <div class="w-26 h-26 overflow-hidden border border-gray-800">
+        <div class="flex flex-grow overflow-hidden border border-black">
           <%= link_to photo_path(photo) do %>
-            <img src="<%= photo.image_url %>" alt="Photo" class="w-full h-full object-cover">
+            <img src="<%= photo.image_url %>" alt="Photo" class="object-cover w-full h-full">
           <% end %>
         </div>
       <% end %>

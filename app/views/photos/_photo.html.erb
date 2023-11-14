@@ -2,19 +2,37 @@
   <div class="w-full flex justify-center">
     <img src="<%= photo.image_url.url %>" class="">
   </div>
-  <div class="border-2 border-primary p-2 mt-2 w-full">
-    <% if photo.location.present? %>
-      <p>
-        <strong>Location:</strong>
-        <%= photo.location %>
-      </p>
-    <% end %>
-    <p class="text-white text-lg mb-8">
-      <%= photo.caption %>
-    </p>
-    <p class="">
+  <div>
+    <p class="mb-4 py-4">
       <strong>Posted by:</strong>
       <%= photo.owner.first_name %> <%= photo.owner.last_name %> <%= photo.owner.suffix %>
     </p>
+    <%# if current_user.person.id == @photo.owner_id %>
+    <div class="flex w-full justify-end p-4">
+      <%= button_to @photo, method: :delete do %>
+        <%= image_tag("trash-can.svg", class: "max-h-[40px]") %>
+      <% end %>
+    </div>
+    <%# end %>
+    <div class="border-2 border-slate-700 p-2 mt-2 w-full">
+      <% if photo.location.present? %>
+        <p>
+          <strong>Location:</strong>
+          <%= photo.location %>
+        </p>
+      <% end %>
+      <p class="text-white text-lg mb-8">
+        <%= photo.caption %>
+      </p>
+      <hr class="border-1 border-slate-700 my-4">
+      <% if photo.comments.present? %>
+        <% photo.comments.each do |comment| %>
+          <%= render "comments/comment", comment: comment %>
+        <% end %>
+        <hr class="border-1 border-slate-700 my-4">
+      <% end %>
+      <div class="">
+        <%= render "comments/form", comment: Comment.new(photo_id: photo.id, author_id: current_user.person.id) %>
+      </div>
+    </div>
   </div>
-</div>

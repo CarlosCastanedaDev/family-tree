@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
 <h1 class="text-3xl text-white mx-auto my-8 text-center">Photos</h1>
 <div class="text-xl text-white mx-auto my-8 text-center">
   <%= button_to "+ Upload a new photo", new_photo_path, method: :get, class: "btn btn-primary" %>
 </div>
-<div id="photos" class="flex flex-wrap justify-center mb-8">
+<div id="photos" class="grid grid-cols-3 mx-4 mb-16">
   <% @photos.each do |photo| %>
-    <%= render photo %>
+    <div id="<%= dom_id photo %>" class="flex flex-grow overflow-hidden border border-black">
+      <%= link_to photo_path(photo) do %>
+        <img src="<%= photo.image_url.url %>" class="object-cover w-full h-full">
+      <% end %>
+    </div>
   <% end %>
 </div>
