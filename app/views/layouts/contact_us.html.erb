@@ -1,4 +1,7 @@
-<h1 class="text-3xl text-white mx-auto my-8 text-center">Contact Us</h1>
+<div class="mx-4 mb-6">
+  <h1 class="text-3xl text-white mx-auto my-8 text-center">Contact Us</h1>
+  <p class="text-center">Let me know what you think of the site. If something is not working correctly or broken please let me know so I can fix it. If there is a feature you would like to see shoot me a message and I can see about integrating it.</p>
+</div>
 <%= form_with(model: @contact, url: contact_forms_path, data: { turbo: false }) do |form| %>
   <div class="flex justify-center mb-16 mx-4">
     <div class="form-control w-full max-w-sm border border-slate-700 p-8 rounded-xl space-y-12 shadow-lg shadow-indigo-700/40">

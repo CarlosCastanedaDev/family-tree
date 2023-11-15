@@ -1,11 +1,12 @@
 <div class="mt-12">
+  <h1 class="text-center font-bold text-2xl mb-4">Familia Castañeda</h1>
   <div class="px-4 sm:px-8 max-w-5xl m-auto">
     <ul class="border border-slate-700 p-2 rounded overflow-hidden shadow-md mb-16">
       <%= render "list", person: @main_node %>
       <% if !@main_node.spouses1.first.nil? || !@main_node.spouses2.first.nil? %>
-      <div class="flex justify-center items-center">
-        <%= image_tag ("marriage.svg"), class: "max-h-[40px]" %>
-      </div>
+        <div class="flex justify-center items-center">
+          <%= image_tag ("marriage.svg"), class: "max-h-[40px]" %>
+        </div>
         <% @main_node.spouses1.each do |spouse| %>
           <%= render "list", person: spouse %>
         <% end %>
