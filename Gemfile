@@ -87,6 +87,7 @@ gem "carrierwave"
 gem "cloudinary"
 gem "mail_form"
 gem 'simple_form'
+gem 'kaminari'
 
 group :development do
   gem "web-console"
