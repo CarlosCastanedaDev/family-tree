@@ -1,5 +1,6 @@
 class MarriagesController < ApplicationController
   before_action :set_marriage, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /marriages or /marriages.json
   def index

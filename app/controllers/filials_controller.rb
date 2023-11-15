@@ -1,5 +1,6 @@
 class FilialsController < ApplicationController
   before_action :set_filial, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /filials or /filials.json
   def index
