@@ -3,17 +3,20 @@
     <img src="<%= photo.image_url.url %>" class="">
   </div>
   <div>
-    <p class="mb-4 py-4">
-      <strong>Posted by:</strong>
-      <%= photo.owner.first_name %> <%= photo.owner.last_name %> <%= photo.owner.suffix %>
-    </p>
-    <%# if current_user.person.id == @photo.owner_id %>
-    <div class="flex w-full justify-end p-4">
-      <%= button_to @photo, method: :delete do %>
-        <%= image_tag("trash-can.svg", class: "max-h-[40px]") %>
+    <div class="flex justify-between my-2">
+      <p>
+        <strong>Posted by:</strong>
+        <%= photo.owner.first_name %> <%= photo.owner.last_name %> <%= photo.owner.suffix %>
+      </p>
+      <% if current_user.person.id == @photo.owner_id %>
+        <div class="flex space-x-4">
+          <%= link_to image_tag("edit.svg", class: "max-h-[20px]"), edit_photo_path(@photo) %>
+          <%= button_to @photo, method: :delete do %>
+            <%= image_tag("trash-can.svg", class: "max-h-[20px]") %>
+          <% end %>
+        </div>
       <% end %>
     </div>
-    <%# end %>
     <div class="border-2 border-slate-700 p-2 mt-2 w-full">
       <% if photo.location.present? %>
         <p>

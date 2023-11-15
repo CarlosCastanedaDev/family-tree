@@ -4,27 +4,24 @@
     <div class="stat-title text-white">Family Members Signed Up</div>
   </div>
   <div class="flex w-full justify-around">
-
-  <nav class="flex flex-col space-y-2">
-    <header class="footer-title">Links</header>
-    <a class="link link-hover">Photos</a>
-    <a class="link link-hover">Birthdays</a>
-    <a class="link link-hover">Events</a>
-    <a class="link link-hover">Memories</a>
-  </nav>
-  <nav class="flex flex-col space-y-2">
-    <header class="footer-title">Legal</header>
-    <a class="link link-hover">Terms of use</a>
-    <a class="link link-hover">Privacy policy</a>
-    <a class="link link-hover">Cookie policy</a>
-  </nav>
+    <nav class="flex flex-col space-y-2">
+      <header class="footer-title">Links</header>
+      <%= link_to "Photos", photos_path %>
+      <%= link_to "Birthdays", birthdays_path %>
+      <a class="link link-hover">Events</a>
+      <a class="link link-hover">Memories</a>
+    </nav>
+    <nav class="flex flex-col space-y-2">
+      <header class="footer-title">Legal</header>
+      <a class="link link-hover">Terms of use</a>
+      <a class="link link-hover">Privacy policy</a>
+      <a class="link link-hover">Cookie policy</a>
+    </nav>
   </div>
-
-<div class="flex flex-col w-full items-center justify-center">
-  <h2>Designed by</h2>
-  <aside>
-    <a href="http://www.nemin.dev" target="_blank"><%= image_tag ("nemdev.png"), class: "max-h-[60px] rounded-full" %></a>
-  </aside>
-
-</div>
+  <div class="flex flex-col w-full items-center justify-center">
+    <h2>Designed by</h2>
+    <aside>
+      <a href="http://www.nemin.dev" target="_blank"><%= image_tag ("nemdev.png"), class: "max-h-[60px] rounded-full" %></a>
+    </aside>
+  </div>
 </footer>

@@ -4,9 +4,19 @@
       <%= image_tag(comment.author.user.avatar_url.url, class: "w-[50px] h-[50px] rounded-full object-cover") %>
     </div>
     <div class="flex flex-col justify-start space-x-2 ml-4 flex-1">
-      <p class="text-lg font-bold pl-2">
-        <%= comment.author.first_name %>
-      </p>
+      <div class="flex justify-between">
+        <p class="text-lg font-bold pl-2">
+          <%= comment.author.first_name %>
+        </p>
+        <% if current_user.person.id == comment.author_id %>
+          <div class="flex space-x-4">
+            <%= link_to image_tag("edit.svg", class: "max-h-[20px]") , edit_comment_path(comment) %>
+            <%= button_to comment, method: :delete do %>
+              <%= image_tag("trash-can.svg", class: "max-h-[20px]") %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
       <p class="text-lg">
         <%= comment.body %>
       </p>
