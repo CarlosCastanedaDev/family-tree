@@ -80,13 +80,13 @@
         <% end %>
         <% if person.address.present? %>
           <h4 class="text-xl">Address</h4>
-          <p class="text-white"><%= person.address %></p>
+          <p class="text-white text-center max-w-[180px]"><%= person.address %></p>
         <% end %>
         <% if person.phone_number.present? %>
           <h4 class="text-xl">Phone Number</h4>
           <p class="text-white"><%= person.phone_number %></p>
         <% end %>
-        <hr class="w-full">
+        <hr class="w-full my-4">
         <% if !person.parents.first.nil? %>
           <h2 class="text-2xl">Parents:</h2>
           <% person.parents.each do |parent| %>

@@ -13,35 +13,35 @@
     <div class="space-y-4">
       <div>
         <%= form.label :first_name, style: "display: block" %>
-        <%= form.text_field :first_name, class: "input input-bordered input-primary w-full max-w-xs" %>
+        <%= form.text_field :first_name, class: "input input-bordered input-primary w-full" %>
       </div>
       <div>
         <%= form.label :last_name, style: "display: block" %>
-        <%= form.text_field :last_name, class: "input input-bordered input-primary w-full max-w-xs" %>
+        <%= form.text_field :last_name, class: "input input-bordered input-primary w-full" %>
       </div>
       <div>
         <%= form.label :middle_name, style: "display: block" %>
-        <%= form.text_field :middle_name, class: "input input-bordered input-primary w-full max-w-xs" %>
+        <%= form.text_field :middle_name, class: "input input-bordered input-primary w-full" %>
       </div>
       <div>
         <%= form.label :maiden_name, style: "display: block" %>
-        <%= form.text_field :maiden_name, class: "input input-bordered input-primary w-full max-w-xs" %>
+        <%= form.text_field :maiden_name, class: "input input-bordered input-primary w-full" %>
       </div>
       <div>
         <%= form.label :dob, "Date of birth", style: "display: block" %>
-        <%= form.text_field :dob, class: "input input-bordered input-primary w-full max-w-xs" %>
+        <%= form.text_field :dob, class: "input input-bordered input-primary w-full" %>
       </div>
       <div>
         <%= form.label :place_of_birth, style: "display: block" %>
-        <%= form.text_field :place_of_birth, class: "input input-bordered input-primary w-full max-w-xs" %>
+        <%= form.text_field :place_of_birth, class: "input input-bordered input-primary w-full" %>
       </div>
       <div>
         <%= form.label :phone_number, style: "display: block" %>
-        <%= form.text_field :phone_number, class: "input input-bordered input-primary w-full max-w-xs" %>
+        <%= form.text_field :phone_number, class: "input input-bordered input-primary w-full" %>
       </div>
       <div>
         <%= form.label :address, style: "display: block" %>
-        <%= form.text_field :address, class: "input input-bordered input-primary w-full max-w-xs" %>
+        <%= form.text_field :address, id: "address", class: "input input-bordered input-primary w-full" %>
       </div>
       <div class="form-actions flex justify-center">
         <%= form.button "Update", class: "btn btn-primary my-4 shadow-lg shadow-indigo-700/40" %>
@@ -49,3 +49,35 @@
     <% end %>
   </div>
 </div>
+<script>
+  const addressInput = document.getElementById('address');
+  const dropdownMenu = document.createElement('div');
+  dropdownMenu.setAttribute('id', 'dropdown-menu');
+  dropdownMenu.classList.add('hidden', 'w-full', 'bg-gray-800', 'text-white', 'shadow-md', 'rounded-md', 'border', 'border-gray-700', 'space-y-2', 'py-2', 'z-50', 'absolute', 'mt-2', 'max-h-[200px]', 'overflow-auto');
+  dropdownMenu.style.width = `${addressInput.offsetWidth}px`;
+  addressInput.parentNode.appendChild(dropdownMenu);
+  addressInput.addEventListener('input', (event) => {
+  const query = event.target.value;
+  fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=<%= ENV['MAPBOX_TOKEN'] %>`)
+  .then(response => response.json())
+  .then(data => {
+  dropdownMenu.innerHTML = '';
+  if (data.features.length > 0) {
+  dropdownMenu.classList.remove('hidden');
+  } else {
+  dropdownMenu.classList.add('hidden');
+  }
+  data.features.forEach(feature => {
+  const option = document.createElement('div');
+  option.textContent = feature.place_name;
+  option.classList.add('px-4', 'py-2', 'hover:bg-indigo-500', 'hover:text-white', 'cursor-pointer');
+  option.addEventListener('click', () => {
+  addressInput.value = feature.place_name;
+  dropdownMenu.innerHTML = '';
+  dropdownMenu.classList.add('hidden');
+  });
+  dropdownMenu.appendChild(option);
+  });
+  });
+  });
+</script>
