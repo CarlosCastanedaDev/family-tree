@@ -87,7 +87,8 @@ gem "carrierwave"
 gem "cloudinary"
 gem "mail_form"
 gem 'simple_form'
-gem 'kaminari'
+
+gem 'will_paginate', '~> 4.0'
 
 group :development do
   gem "web-console"
