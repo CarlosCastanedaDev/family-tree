@@ -88,6 +88,7 @@ gem "cloudinary"
 gem "mail_form"
 gem 'simple_form'
 gem 'pagy', '~> 6.2' # omit patch digit
+gem 'ransack'
 
 group :development do
   gem "web-console"

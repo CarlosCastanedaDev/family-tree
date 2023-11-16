@@ -5,6 +5,8 @@ class PeopleController < ApplicationController
   # GET /people or /people.json
   def index
     @people = Person.all
+    @q = Person.all.order(first_name: :asc).ransack(params[:q])
+    @people = @q.result
   end
 
   # GET /people/1 or /people/1.json

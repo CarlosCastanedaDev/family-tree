@@ -45,6 +45,9 @@ class Person < ApplicationRecord
   # def actual_siblings
   #   siblings.where.not(id: self.id).distinct
   # end
+  def self.ransackable_attributes(auth_object = nil)
+    ["first_name"]
+  end
 
   def siblings
     siblings_ids = parents.flat_map { |parent| parent.children.where.not(id: self.id).pluck(:id) }
