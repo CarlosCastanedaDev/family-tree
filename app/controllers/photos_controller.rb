@@ -1,10 +1,11 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  
 
   # GET /photos or /photos.json
   def index
-    @photos = Photo.all.order(created_at: :desc)
+  @pagy, @photos = pagy(Photo.all.order(created_at: :desc), items: 45)
   end
 
   # GET /photos/1 or /photos/1.json

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     
 #     devise_parameter_sanitizer.permit(:account_update, :keys => [:avatar_url])
 #   end
+include Pagy::Backend
 
     def contact_us
         render "layouts/contact_us"
