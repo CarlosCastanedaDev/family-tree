@@ -2,11 +2,11 @@
 <div class="text-xl text-white mx-auto my-8 text-center">
   <%= button_to "+ Upload a new photo", new_photo_path, method: :get, class: "btn btn-primary" %>
 </div>
-<div id="photos" class="grid grid-cols-3 mx-2 mb-16">
+<div id="photos" class="flex flex-wrap justify-center mb-16">
   <% @photos.each do |photo| %>
-    <div id="<%= dom_id photo %>" class="flex items-center overflow-hidden border border-black h-32 w-32">
+    <div id="<%= dom_id photo %>" class="overflow-hidden border border-black h-32 w-32">
       <%= link_to photo_path(photo) do %>
-        <img src="<%= photo.image_url.url %>" class="object-cover">
+        <img src="<%= photo.image_url.url %>" class="object-cover w-32 h-32">
       <% end %>
     </div>
   <% end %>

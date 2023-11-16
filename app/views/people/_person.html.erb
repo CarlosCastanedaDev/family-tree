@@ -129,11 +129,11 @@
   </div>
   <% if person.tagged_photos.any? %>
     <h2 class="text-2xl text-center my-8">Tagged Photos:</h2>
-    <div class="grid grid-cols-3 mx-4 mb-16">
+    <div class="flex flex-wrap justify-center mb-16">
       <% person.tagged_photos.order(created_at: :desc).each do |photo| %>
-        <div class="flex flex-grow overflow-hidden border border-black">
+        <div class="min-w-32 min-h-32 overflow-hidden border border-black">
           <%= link_to photo_path(photo) do %>
-            <img src="<%= photo.image_url %>" alt="Photo" class="object-cover w-full h-full">
+            <img src="<%= photo.image_url %>" alt="Photo" class="object-cover w-32 h-32">
           <% end %>
         </div>
       <% end %>
