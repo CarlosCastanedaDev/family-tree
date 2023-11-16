@@ -5,6 +5,8 @@
 *body {
   font-family: 'Montserrat', sans-serif;
 }
+
+/* Styling for pagination on photos index */
 .pagy-nav.pagination {
   @apply isolate inline-flex -space-x-px rounded-md shadow-sm;
 }

@@ -13,18 +13,31 @@
               input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
       <%= f.input :location,
               input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
-      <%= f.label :person_ids, "Tag People", class: "text-xl" %>
-      <%= f.collection_check_boxes :person_ids, Person.all.order(:first_name, :asc), :id, :first_name do |b| %>
-        <div class="flex items-center">
-          <%= b.check_box class: "checkbox checkbox-primary" %>
-          <%= b.label class: "text-xl pl-4" do %>
-            <%=  "#{b.object.first_name} #{b.object.last_name} #{b.object.suffix}"  %>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="flex flex-col items-center justify-center space-y-2">
+        <%= f.label :person_ids, "Tag People", class: "text-xl" %>
+        <%= f.select :person_ids, Person.all.order(:first_name, :asc).map { |p| ["#{p.first_name} #{p.last_name} #{p.suffix}", p.id] }, {}, { multiple: true, class: "select2 select select-bordered select-primary w-full max-w-xs" } %>
+      </div>
       <div class="form-actions flex justify-center">
         <%= f.button :submit, "Upload Photo", class: "btn btn-primary my-4" %>
       </div>
     </div>
   </div>
 <% end %>
+<script>
+  $(document).ready(function() {
+  $('.select2').select2();
+  // $('.select2-selection--single').addClass('bg-gray-200 border-gray-300 rounded-md');
+  // $('.select2').on('select2:open', function() {
+  // $('.select2-dropdown').addClass('border-gray-300 rounded-md');
+  // $('.select2-results__option').addClass('text-gray-500 text-lg');
+  // $('.select2-results__option--highlighted').addClass('bg-primary text-white');
+  // });
+  // $('.select2').on('select2:close', function() {
+  // $('.select2-selection__rendered').addClass('text-gray-500');
+  // $('.select2-selection__arrow').addClass('text-gray-500');
+  // $('.select2-selection--multiple').addClass('bg-gray-200 border-gray-300 rounded-md');
+  // $('.select2-selection__choice').addClass('bg-primary text-white rounded-md');
+  // $('.select2-selection__choice__remove').addClass('text-white');
+  // });
+  });
+</script>
