@@ -254,6 +254,7 @@ GEM
       sawyer (~> 0.9)
     oj (3.13.23)
     orm_adapter (0.5.0)
+    pagy (6.2.0)
     pg (1.5.4)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -469,8 +470,8 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
-  kaminari
   mail_form
+  pagy (~> 6.2)
   pg (~> 1.1)
   pry-rails
   puma (~> 6.0)

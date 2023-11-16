@@ -87,8 +87,7 @@ gem "carrierwave"
 gem "cloudinary"
 gem "mail_form"
 gem 'simple_form'
-
-gem 'will_paginate', '~> 4.0'
+gem 'pagy', '~> 6.2' # omit patch digit
 
 group :development do
   gem "web-console"
