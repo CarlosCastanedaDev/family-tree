@@ -15,7 +15,7 @@
               input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
       <div class="flex flex-col items-center justify-center space-y-2">
         <%= f.label :person_ids, "Tag People", class: "text-xl" %>
-        <%= f.select :person_ids, Person.all.order(:first_name, :asc).map { |p| ["#{p.first_name} #{p.last_name} #{p.suffix}", p.id] }, {}, { multiple: true, class: "select2 select select-bordered select-primary w-full max-w-xs" } %>
+        <%= f.select :person_ids, Person.all.order(:first_name).map { |p| ["#{p.first_name} #{p.last_name} #{p.suffix}", p.id] }, {}, { multiple: true, class: "select2 select select-bordered select-primary w-full max-w-xs" } %>
       </div>
       <div class="form-actions flex justify-center">
         <%= f.button :submit, "Upload Photo", class: "btn btn-primary my-4" %>
