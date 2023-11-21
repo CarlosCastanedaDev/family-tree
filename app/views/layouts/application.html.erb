@@ -36,5 +36,28 @@
     defer
     src="https://api.mapbox.com/search-js/v1.0.0-beta.18/web.js"
 ></script>
+    <script>
+      document.addEventListener('turbo:load', function() {
+        var savedTheme = localStorage.getItem('theme');
+        if(savedTheme) {
+          document.body.setAttribute('data-theme', savedTheme);
+          var modeDisplayImage = document.getElementById('mode-display');
+          if(modeDisplayImage) {
+            modeDisplayImage.src = modeDisplayImage.getAttribute('data-' + savedTheme);
+          }
+          var burgerMenuImage = document.getElementById('burger-menu');
+          if(burgerMenuImage) {
+            burgerMenuImage.src = burgerMenuImage.getAttribute('data-' + savedTheme);
+          }
+          var chevronImages = document.getElementsByClassName('chevron-image');
+          for(var i = 0; i < chevronImages.length; i++) {
+            var newSrc = chevronImages[i].getAttribute('data-' + savedTheme);
+            if(newSrc) {
+              chevronImages[i].src = newSrc;
+            }
+          }
+        }
+      });
+    </script>
   </body>
 </html>

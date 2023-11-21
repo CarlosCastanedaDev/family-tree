@@ -7,62 +7,62 @@ module.exports = {
     './app/inputs/**/*.rb',
     './app/assets/javascripts/**/*.js',
     './config/initializers/**/*.rb',
-    './lib/components/**/*.rb'
+    './lib/components/**/*.rb',
   ],
   safelist: [
     {
-      pattern: /bg-(red|green|blue|orange)-(100|200|400)/
+      pattern: /bg-(red|green|blue|orange)-(100|200|400)/,
     },
     {
-      pattern: /text-(red|green|blue|orange)-(100|200|400)/
+      pattern: /text-(red|green|blue|orange)-(100|200|400)/,
     },
-    'pagy-*'
+    'pagy-*',
   ],
   variants: {
     extend: {
-      overflow: ['hover']
-    }
+      overflow: ['hover'],
+    },
   },
   theme: {
     listStyleType: {
       none: 'none',
       disc: 'disc',
       decimal: 'decimal',
-      square: 'square'
-    }
+      square: 'square',
+    },
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
     themes: [
       'light',
       'dark',
-      'cupcake',
-      'bumblebee',
-      'emerald',
-      'corporate',
-      'synthwave',
-      'retro',
-      'cyberpunk',
-      'valentine',
-      'halloween',
-      'garden',
-      'forest',
-      'aqua',
-      'lofi',
-      'pastel',
-      'fantasy',
-      'wireframe',
-      'black',
-      'luxury',
-      'dracula',
-      'cmyk',
-      'autumn',
-      'business',
-      'acid',
-      'lemonade',
-      'night',
-      'coffee',
-      'winter'
-    ]
-  }
-}
+      // 'cupcake',
+      // 'bumblebee',
+      // 'emerald',
+      // 'corporate',
+      // 'synthwave',
+      // 'retro',
+      // 'cyberpunk',
+      // 'valentine',
+      // 'halloween',
+      // 'garden',
+      // 'forest',
+      // 'aqua',
+      // 'lofi',
+      // 'pastel',
+      // 'fantasy',
+      // 'wireframe',
+      // 'black',
+      // 'luxury',
+      // 'dracula',
+      // 'cmyk',
+      // 'autumn',
+      // 'business',
+      // 'acid',
+      // 'lemonade',
+      // 'night',
+      // 'coffee',
+      // 'winter'
+    ],
+  },
+};
