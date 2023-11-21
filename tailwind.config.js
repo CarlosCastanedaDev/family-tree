@@ -34,35 +34,22 @@ module.exports = {
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
     themes: [
+      {
+        dark: {
+          primary: '#793ef9', // primary color i.e. buttons and input fields
+          'primary-focus': '#793ef9',
+          'primary-content': '#ffffff', // text color for primary color i.e. buttons and input fields
+          'base-100': '#1E232A',
+          'base-200': '#2a2e37', // footer background
+          'base-300': '#16181d',
+          'base-content': '#f5f5f5', // text color
+          info: '#66c6ff',
+          success: '#87d039',
+          warning: '#e2d562',
+          error: '#ff6f6f',
+        },
+      },
       'light',
-      'dark',
-      // 'cupcake',
-      // 'bumblebee',
-      // 'emerald',
-      // 'corporate',
-      // 'synthwave',
-      // 'retro',
-      // 'cyberpunk',
-      // 'valentine',
-      // 'halloween',
-      // 'garden',
-      // 'forest',
-      // 'aqua',
-      // 'lofi',
-      // 'pastel',
-      // 'fantasy',
-      // 'wireframe',
-      // 'black',
-      // 'luxury',
-      // 'dracula',
-      // 'cmyk',
-      // 'autumn',
-      // 'business',
-      // 'acid',
-      // 'lemonade',
-      // 'night',
-      // 'coffee',
-      // 'winter'
     ],
   },
 };
