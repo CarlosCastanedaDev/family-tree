@@ -59,7 +59,7 @@
     <div class="flex flex-col ml-8">
       <% if person.tagged_photos.any? %>
       <h2 class="text-2xl text-center mb-8">Tagged Photos:</h2>
-      <div class="flex flex-wrap justify-center mb-16">
+      <div class="flex flex-wrap justify-start mb-16">
         <% person.tagged_photos.order(created_at: :desc).each do |photo| %>
           <div class="min-w-32 min-h-32 overflow-hidden border border-black">
             <%= link_to photo_path(photo) do %>
@@ -143,7 +143,7 @@
   </div>
   <% if person.tagged_photos.any? %>
     <h2 class="text-2xl text-center my-8">Tagged Photos:</h2>
-    <div class="flex flex-wrap justify-center mb-16">
+    <div class="flex flex-wrap justify-start max-w-[390px] mb-16 mx-auto">
       <% person.tagged_photos.order(created_at: :desc).each do |photo| %>
         <div class="min-w-32 min-h-32 overflow-hidden border border-black">
           <%= link_to photo_path(photo) do %>

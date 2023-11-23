@@ -1,6 +1,7 @@
 <div id="<%= dom_id photo %>" class="flex flex-col items-center justify-center md:w-1/2 mx-auto">
-  <div class="flex justify-start space-x-4 mb-2 ml-4 mt-4 w-full">
-    <div class="h-12 w-12 rounded-full overflow-hidden">
+  <div class="flex justify-between mb-2 mx-4 mt-4 w-full">
+    <div class="flex space-x-2">
+    <div class="h-12 w-12 rounded-full overflow-hidden ml-4">
       <%= image_tag(photo.owner.user.avatar_url.url, class: "h-full w-full object-cover") %>
     </div>
     <div>
@@ -13,13 +14,11 @@
         </p>
       <% end %>
     </div>
-  </div>
-  <div class="w-full flex justify-center">
-    <img src="<%= photo.image_url.url %>" class="">
-  </div>
-  <div>
-    <div class="flex justify-end my-2 mr-4 md:w-full space-x-4">
+    </div>
+    <div class="flex items-center md:w-full space-x-4 mr-4">
+      <% if current_user.person.id != @photo.owner_id %>
       <%= link_to image_tag("download.svg", class: "max-h-[20px]"), photo.image_url.url, download: '' %>
+      <% end %>
       <% if current_user.person.id == @photo.owner_id %>
         <div class="flex space-x-4">
           <%= link_to image_tag("edit.svg", class: "max-h-[20px]"), edit_photo_path(@photo) %>
@@ -29,6 +28,30 @@
         </div>
       <% end %>
     </div>
+  </div>
+  <div class="w-full flex justify-center">
+    <img src="<%= photo.image_url.url %>" class="">
+  </div>
+  <div>
+    
+    <% if photo.people.present? %>
+  <div class="flex flex-col items-center space-y-2 mt-4">
+    <p>People tagged in this photo:</p>
+    <div class="flex flex-wrap space-x-2">
+      <% photo.people.each do |person| %>
+        <% if person&.user&.avatar_url&.url.present? %>
+          <%= link_to person_path(person.id), class: "w-[40px] md:w-[60px] bg-slate-600 shadow-xl border-indigo-500 rounded-full" do %>
+            <img src="<%= person&.user&.avatar_url&.url %>" alt="<%= person.first_name %>'s avatar" class="rounded-full">
+          <% end %>
+        <% else %>
+          <%= link_to person_path(person.id), class: "w-[40px] md:w-[60px] bg-primary shadow-xl border-indigo-500 rounded-full flex items-center justify-center text-lg md:text-2xl font-bold" do %>
+            <%= person.first_name.slice(0,1).capitalize %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
     <div class="flex flex-col justify-center p-4 mt-2 w-full">
       <p class="text-lg mb-8">
         <%= photo.caption %>
