@@ -41,7 +41,7 @@
       <% photo.people.each do |person| %>
         <% if person&.user&.avatar_url&.url.present? %>
           <%= link_to person_path(person.id), class: "w-[40px] md:w-[60px] bg-slate-600 shadow-xl border-indigo-500 rounded-full" do %>
-            <img src="<%= person&.user&.avatar_url&.url %>" alt="<%= person.first_name %>'s avatar" class="rounded-full">
+            <img src="<%= person&.user&.avatar_url&.url %>" alt="<%= person.first_name %>'s avatar" class="w-[40px] md:w-[60px] rounded-full">
           <% end %>
         <% else %>
           <%= link_to person_path(person.id), class: "w-[40px] md:w-[60px] bg-primary shadow-xl border-indigo-500 rounded-full flex items-center justify-center text-lg md:text-2xl font-bold" do %>
