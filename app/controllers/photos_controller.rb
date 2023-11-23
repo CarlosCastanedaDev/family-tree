@@ -10,7 +10,9 @@ class PhotosController < ApplicationController
 
   # GET /photos/1 or /photos/1.json
   def show
-  end
+  @photo = Photo.find(params[:id])
+  @download_url = Cloudinary::Utils.private_download_url(@photo.image_url.file.public_id, @photo.image_url.file.format, attachment: true)
+end
 
   # GET /photos/new
   def new
