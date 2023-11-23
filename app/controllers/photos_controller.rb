@@ -71,4 +71,6 @@ end
     def photo_params
       params.require(:photo).permit(:owner_id, :image_url, :caption, :location, { person_ids: [] })
     end
+
+
 end

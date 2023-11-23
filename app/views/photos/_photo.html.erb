@@ -1,4 +1,4 @@
-<div id="<%= dom_id photo %>" class="flex flex-col items-center justify-center max-h-fit">
+<div id="<%= dom_id photo %>" class="flex flex-col items-center justify-center md:w-1/2 mx-auto">
   <div class="flex justify-start space-x-4 mb-2 ml-4 mt-4 w-full">
     <div class="h-12 w-12 rounded-full overflow-hidden">
       <%= image_tag(photo.owner.user.avatar_url.url, class: "h-full w-full object-cover") %>
@@ -18,9 +18,10 @@
     <img src="<%= photo.image_url.url %>" class="">
   </div>
   <div>
-    <div class="flex justify-end my-2 mr-4">
+    <div class="flex justify-end my-2 mr-4 md:w-full">
       <% if current_user.person.id == @photo.owner_id %>
         <div class="flex space-x-4">
+          <%= link_to image_tag("download.svg", class: "max-h-[20px]"), photo.image_url.url, download: '' %>
           <%= link_to image_tag("edit.svg", class: "max-h-[20px]"), edit_photo_path(@photo) %>
           <%= button_to @photo, method: :delete do %>
             <%= image_tag("trash-can.svg", class: "max-h-[20px]") %>
@@ -28,7 +29,7 @@
         </div>
       <% end %>
     </div>
-    <div class="flex flex-col justify-center p-2 mt-2 w-full">
+    <div class="flex flex-col justify-center p-4 mt-2 w-full">
       <p class="text-lg mb-8">
         <%= photo.caption %>
       </p>

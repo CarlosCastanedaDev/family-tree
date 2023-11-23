@@ -11,7 +11,7 @@
             <%#= person.maiden_name %>
             <%# end %>
           </h2>
-          <h3 class="card-body justify-center text-center text-xl text-white"><%= person.dob %> </h3>
+          <h3 class="card-body justify-center text-center text-xl text-white"><%= person.dob.slice(0,5) %> </h3>
           <div class="card-actions justify-center">
             <a href="<%= person_path(person.id) %>"><button class="btn btn-primary">Details</button></a>
           </div>

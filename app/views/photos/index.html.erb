@@ -2,7 +2,7 @@
 <div class="text-xl text-white mx-auto my-8 text-center">
   <%= button_to "+ Upload a new photo", new_photo_path, method: :get, class: "btn btn-primary" %>
 </div>
-<div id="photos" class="flex flex-wrap justify-center mb-16">
+<div id="photos" class="flex flex-wrap justify-start max-w-[385px] md:max-w-[650px] mb-16 mx-auto">
   <% @photos.each do |photo| %>
     <div id="<%= dom_id photo %>" class="overflow-hidden border border-black h-32 w-32">
       <%= link_to photo_path(photo) do %>
