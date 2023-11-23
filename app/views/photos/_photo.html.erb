@@ -18,13 +18,10 @@
     <img src="<%= photo.image_url.url %>" class="">
   </div>
   <div>
-    <div class="flex justify-end my-2 mr-4 md:w-full">
+    <div class="flex justify-end my-2 mr-4 md:w-full space-x-4">
+      <%= link_to image_tag("download.svg", class: "max-h-[20px]"), photo.image_url.url, download: '' %>
       <% if current_user.person.id == @photo.owner_id %>
         <div class="flex space-x-4">
-          <%= link_to @download_url, download: '' do %>
-  <%= image_tag("download.svg", class: "max-h-[20px]") %>
-<% end %>
-          <%= link_to image_tag("download.svg", class: "max-h-[20px]"), photo.image_url.url, download: '' %>
           <%= link_to image_tag("edit.svg", class: "max-h-[20px]"), edit_photo_path(@photo) %>
           <%= button_to @photo, method: :delete do %>
             <%= image_tag("trash-can.svg", class: "max-h-[20px]") %>
