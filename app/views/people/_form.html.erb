@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center border border-slate-700 p-8 rounded-xl mx-4 shadow-lg shadow-indigo-700/40">
+<div class="flex flex-col items-center border border-slate-700 p-8 rounded-xl mx-4 shadow-lg shadow-indigo-700/40 md:max-w-xl md:mx-auto">
   <%= form_with(model: person) do |form| %>
     <% if person.errors.any? %>
       <div style="color: red">
@@ -11,7 +11,7 @@
       </div>
     <% end %>
     <div class="space-y-4">
-      <div>
+      <div class="md:w-[350px]">
         <%= form.label :first_name, style: "display: block" %>
         <%= form.text_field :first_name, class: "input input-bordered input-primary w-full" %>
       </div>

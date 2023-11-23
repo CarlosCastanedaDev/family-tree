@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="flex justify-center">
-    <div class="form-control w-full max-w-sm mx-4 border border-white p-4 rounded-xl space-y-12">
+    <div class="form-control w-full max-w-sm mx-4 border border-slate-600 shadow-lg shadow-indigo-700/40 p-4 rounded-xl space-y-12">
       <%= f.hidden_field :owner_id, 
               input_html: { value: current_user.id } %>
       <%= f.input :image_url,

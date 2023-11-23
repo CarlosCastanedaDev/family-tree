@@ -1,9 +1,10 @@
-<div class="<%= 'border border-slate-700 p-2' unless person.parents.any? { |parent| parent.parents.include?(@main_node) } %>">
+<%# This view is individual families i.e. Salvador's Family %>
+<div class="<%= 'border border-slate-700 p-2 max-w-5xl' unless person.parents.any? { |parent| parent.parents.include?(@main_node) } %>">
   <li>
     <%= render "list", person: person %>
     <% if person.spouses1.any? %>
       <div class="flex justify-center items-center">
-        <%= image_tag ("marriage.svg"), class: "max-h-[40px]" %>
+        <%= image_tag ("marriage.svg"), class: "max-h-[40px] md:max-h-[60px]" %>
       </div>
       <% person.spouses1.each do |spouse| %>
         <%= render "list", person: spouse %>
@@ -11,7 +12,7 @@
     <% end %>
     <% if person.spouses2.any? %>
       <div class="flex justify-center items-center">
-        <%= image_tag ("marriage.svg"), class: "max-h-[40px]" %>
+        <%= image_tag ("marriage.svg"), class: "max-h-[40px] md:max-h-[60px]" %>
       </div>
       <% person.spouses2.each do |spouse| %>
         <%= render "list", person: spouse %>

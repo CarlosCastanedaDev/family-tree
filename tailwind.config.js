@@ -30,6 +30,11 @@ module.exports = {
       decimal: 'decimal',
       square: 'square',
     },
+    screens: {
+      sm: '800px',
+      md: '1160px',
+      lg: '1024px',
+    },
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
