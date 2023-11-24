@@ -1,9 +1,11 @@
 <div id="<%= dom_id photo %>" class="flex flex-col items-center justify-center md:w-1/2 mx-auto">
   <div class="flex justify-between mb-2 mx-4 mt-4 w-full">
-    <div class="flex space-x-2">
+    <div class="flex space-x-2 md:w-[450px]">
+      <%= link_to person_path(photo.owner.id), class: "" do %>
     <div class="h-12 w-12 rounded-full overflow-hidden ml-4">
       <%= image_tag(photo.owner.user.avatar_url.url, class: "h-full w-full object-cover") %>
     </div>
+    <% end %>
     <div>
       <p>
         <%= photo.owner.first_name %> <%= photo.owner.last_name %> <%= photo.owner.suffix %>
@@ -15,7 +17,7 @@
       <% end %>
     </div>
     </div>
-    <div class="flex items-center md:w-full space-x-4 mr-4">
+    <div class="flex items-center md:w-full md:justify-end space-x-4 mr-4">
       <% if current_user.person.id != @photo.owner_id %>
       <%= link_to image_tag("download.svg", class: "max-h-[20px]"), photo.image_url.url, download: '' %>
       <% end %>
@@ -41,7 +43,7 @@
       <% photo.people.each do |person| %>
         <% if person&.user&.avatar_url&.url.present? %>
           <%= link_to person_path(person.id), class: "w-[40px] md:w-[60px] bg-slate-600 shadow-xl border-indigo-500 rounded-full" do %>
-            <img src="<%= person&.user&.avatar_url&.url %>" alt="<%= person.first_name %>'s avatar" class="w-[40px] md:w-[60px] rounded-full">
+            <img src="<%= person&.user&.avatar_url&.url %>" alt="<%= person.first_name %>'s avatar" class="w-[40px] md:w-[60px] object-cover rounded-full">
           <% end %>
         <% else %>
           <%= link_to person_path(person.id), class: "w-[40px] md:w-[60px] bg-primary shadow-xl border-indigo-500 rounded-full flex items-center justify-center text-lg md:text-2xl font-bold" do %>
