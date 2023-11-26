@@ -4,13 +4,13 @@
       <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
       <div class="card-body flex flex-col items-center border-t-2">
         <h2 class="card-title text-white text-center"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %></h2>
-        <h4 class="text-xl">Birthday</h4>
+        <h4 class="text-xl">Birthdate</h4>
         <p class="text-white"><%= person.dob %></p>
         <h4 class="text-xl">Birthplace</h4>
         <p class="text-white"><%= person.place_of_birth %></p>
         <% if person.address.present? %>
           <h4 class="text-xl">Address</h4>
-          <p class="text-white"><%= person.address %></p>
+          <p class="text-white text-center max-w-[180px]"><%= person.address %></p>
         <% end %>
         <% if person.phone_number.present? %>
           <h4 class="text-xl">Phone Number</h4>
@@ -86,7 +86,7 @@
     </div>
     <div class="collapse-content">
       <div class="card-body flex flex-col items-center border-t-2">
-        <h4 class="text-xl">Birthday</h4>
+        <h4 class="text-xl">Birthdate</h4>
         <p class=""><%= person.dob %></p>
         <% if person.place_of_birth.present? %>
           <h4 class="text-xl">Birthplace</h4>
