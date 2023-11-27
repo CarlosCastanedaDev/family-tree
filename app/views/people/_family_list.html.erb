@@ -1,14 +1,20 @@
 <%# This view is individual children of main node in family tree view %>
 <li>
   <%= link_to family_path(person.id), class: "" do %>
-  <div class="flex items-center md:justify-center space-x-2 my-4 mx-1">
-    <div class="w-[50px] md:w-[100px] bg-slate-600 shadow-xl border-indigo-500 rounded-full">
-      <figure><img src="https://robohash.org/<%= person.id %>" class="rounded-full" /></figure>
-    </div>
-    <h2 class="w-full max-w-[260px] md:max-w-[340px] md:text-xl pl-4"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
-    <div class="items-end">
+    <div class="flex items-center md:justify-center space-x-2 my-4 mx-1">
+      <div class="w-12 md:w-24 bg-slate-600 shadow-xl border-indigo-500 rounded-full">
+        <% if person&.image_url&.present? %>
+          <figure><img src="<%= person.image_url.url %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
+        <% elsif person&.user&.avatar_url&.present? %>
+          <figure><img src="<%= person.user.avatar_url.url %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
+        <% else %>
+          <figure><img src="https://robohash.org/<%= person.id %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
+        <% end %>
+      </div>
+      <h2 class="w-full max-w-[220px] md:max-w-[340px] md:text-xl pl-4"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
+      <div class="items-end">
         <%= image_tag("chevron.svg", class: "chevron-image max-h-[25px]", data: { light: asset_path('chevron-black.svg'), dark: asset_path('chevron.svg') }) %>
+      </div>
     </div>
-  </div>
   <% end %>
 </li>

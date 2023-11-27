@@ -1,37 +1,43 @@
+<%# Desktop View %>
 <div class="hidden md:block">
-<h1 class="text-3xl mx-auto my-8 text-center">Birthdays this Month 🎂</h1>
-<div class="flex flex-wrap justify-center items-center w-full mx-auto">
-  <% @bdays.each do |person| %>
-    <div class="m-8 max-h-full">
-      <div class="card w-full bg-slate-600 shadow-xl">
-        <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
-        <div class="card-body border-t-2">
-          <h2 class="card-title text-white text-center justify-center"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %>
-            <%# if person.maiden_name.present? %>
-            <%#= person.maiden_name %>
-            <%# end %>
-          </h2>
-          <h3 class="card-body justify-center text-center text-xl text-white"><%= person.dob.slice(0,5) %> </h3>
-          <div class="card-actions justify-center">
-            <a href="<%= person_path(person.id) %>"><button class="btn btn-primary">Details</button></a>
+  <h1 class="text-3xl mx-auto my-8 text-center">Birthdays this Month 🎂</h1>
+  <div class="flex flex-wrap justify-center items-center w-3/4 mx-auto">
+    <% @bdays.each do |person| %>
+      <div class="m-8">
+        <div class="card w-[350px] max-h-[500px] dark:bg-slate-700 shadow-xl">
+          <% if person&.image_url&.present? %>
+            <figure><img src="<%= person.image_url.url %>" /></figure>
+          <% elsif person&.user&.avatar_url&.present? %>
+            <figure><img src="<%= person.user.avatar_url.url %>" /></figure>
+          <% else %>
+            <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
+          <% end %>
+          <div class="card-body border-t-2">
+            <h2 class="card-title text-white text-center justify-center"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %>
+              <%# if person.maiden_name.present? %>
+              <%#= person.maiden_name %>
+              <%# end %>
+            </h2>
+            <h3 class="card-body justify-center text-center text-xl text-white"><%= person.dob.slice(0,5) %> </h3>
+            <div class="card-actions justify-center">
+              <a href="<%= person_path(person.id) %>"><button class="btn btn-primary">Details</button></a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</ul>
+    <% end %>
+  </ul>
 </div>
 </div>
 <%# Mobile View %>
 <div class="md:hidden my-16">
   <div class="text-6xl mx-auto text-center">🎂</div>
-<h1 class="text-3xl m-auto my-8 text-center">Birthdays this Month</h1>
-<div class="px-4 max-w-5xl m-auto">
-  <ul class="border border-slate-700 px-2 py-6 rounded overflow-hidden shadow-md">
-  <% @bdays.each_with_index do |person, index| %>
-  <%= render "bday_list", person: person, index: index %>
-  <% end %>
-</ul>
+  <h1 class="text-3xl m-auto my-8 text-center">Birthdays this Month</h1>
+  <div class="px-4 max-w-5xl m-auto">
+    <ul class="border border-slate-700 px-2 py-6 rounded overflow-hidden shadow-md">
+      <% @bdays.each_with_index do |person, index| %>
+        <%= render "bday_list", person: person, index: index %>
+      <% end %>
+    </ul>
+  </div>
 </div>
-</div>
-

@@ -1,17 +1,24 @@
+<%# Mobile View card for birthdays %>
 <li>
   <%= link_to person_path(person.id), class: "" do %>
-  <div class="flex items-center justify-between my-4 mx-1 min-h-[60px]">
-    <div class="w-[60px] bg-slate-600 shadow-xl rounded-full">
-      <figure><img src="https://robohash.org/<%= person.id %>" class="rounded-full" /></figure>
-    </div>
-    <div class="grow">
-      <h2 class="w-full min-w-[240px] text-center px-4"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
-      <div class="text-center text-xl"><%= person.dob.slice(0,5) %></div>
-    </div>
-    <div class="mx-auto">
+    <div class="flex items-center justify-between my-4 mx-1 min-h-[60px]">
+      <div class="w-12 bg-slate-600 shadow-xl rounded-full">
+        <% if person&.image_url&.present? %>
+          <figure><img src="<%= person.image_url.url %>" class="w-12 h-12 object-cover rounded-full" /></figure>
+        <% elsif person&.user&.avatar_url&.present? %>
+          <figure><img src="<%= person.user.avatar_url.url %>" class="w-12 h-12 object-cover rounded-full" /></figure>
+        <% else %>
+          <figure><img src="https://robohash.org/<%= person.id %>" class="w-12 h-12 object-cover rounded-full" /></figure>
+        <% end %>
+      </div>
+      <div class="grow">
+        <h2 class="w-full min-w-[220px] text-center px-4"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
+        <div class="text-center text-xl"><%= person.dob.slice(0,5) %></div>
+      </div>
+      <div class="mx-auto">
         <%= image_tag("chevron.svg", class: "chevron-image max-h-[25px]", data: { light: asset_path('chevron-black.svg'), dark: asset_path('chevron.svg') }) %>
+      </div>
     </div>
-  </div>
   <% end %>
   <% unless index == @bdays.length - 1 %>
     <hr class="flex my-6 mx-auto w-4/5 bg-gray-500">

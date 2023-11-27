@@ -1,14 +1,22 @@
+<%# This is the view for individual people, mobile view is at the bottom i.e. their profile page %>
+<%# Desktop View %>
 <div class="hidden md:w-3/4 md:flex md:justify-center md:items-center md:mx-auto">
   <div class="flex justify-center m-4">
     <div class="card w-2/5 min-w-[350px] dark:bg-slate-700 shadow-xl">
-      <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
+      <% if person&.image_url&.present? %>
+        <figure><img src="<%= person.image_url.url %>" /></figure>
+      <% elsif person&.user&.avatar_url&.present? %>
+        <figure><img src="<%= person.user.avatar_url.url %>" /></figure>
+      <% else %>
+        <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
+      <% end %>
       <div class="card-body flex flex-col items-center border-t-2">
         <h2 class="card-title text-white text-center"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
         <h4 class="text-xl">Birthdate</h4>
         <p class="text-white"><%= person.dob %></p>
         <% if person.place_of_birth.present? %>
-        <h4 class="text-xl">Birthplace</h4>
-        <p class="text-white"><%= person.place_of_birth %></p>
+          <h4 class="text-xl">Birthplace</h4>
+          <p class="text-white"><%= person.place_of_birth %></p>
         <% end %>
         <% if person.address.present? %>
           <h4 class="text-xl">Address</h4>
@@ -60,16 +68,16 @@
     </div>
     <div class="flex flex-col ml-8">
       <% if person.tagged_photos.any? %>
-      <h2 class="text-2xl text-center mb-8">Tagged Photos:</h2>
-      <div class="flex flex-wrap justify-start mb-16">
-        <% person.tagged_photos.order(created_at: :desc).each do |photo| %>
-          <div class="min-w-32 min-h-32 overflow-hidden border border-black">
-            <%= link_to photo_path(photo) do %>
-              <img src="<%= photo.image_url %>" alt="Photo" class="object-cover w-32 h-32">
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+        <h2 class="text-2xl text-center mb-8">Tagged Photos:</h2>
+        <div class="flex flex-wrap justify-start mb-16">
+          <% person.tagged_photos.order(created_at: :desc).each do |photo| %>
+            <div class="min-w-32 min-h-32 overflow-hidden border border-black">
+              <%= link_to photo_path(photo) do %>
+                <img src="<%= photo.image_url %>" alt="Photo" class="object-cover w-32 h-32">
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
@@ -77,8 +85,14 @@
 <%# Mobile View %>
 <div class="block md:hidden mb-4">
   <div class="flex items-center justify-center space-x-2 my-12 mx-1">
-    <div class="w-[120px] bg-slate-600 shadow-xl border-indigo-500 rounded-full">
-      <figure><img src="https://robohash.org/<%= person.id %>" class="rounded-full" /></figure>
+    <div class="w-32 h-32 bg-slate-600 shadow-xl border-indigo-500 rounded-full">
+      <% if person&.image_url&.present? %>
+        <figure><img src="<%= person.image_url.url %>" class="w-32 h-32 object-cover rounded-full" /></figure>
+      <% elsif person&.user&.avatar_url&.present? %>
+        <figure><img src="<%= person.user.avatar_url.url %>" class="w-32 h-32 object-cover rounded-full" /></figure>
+      <% else %>
+        <figure><img src="https://robohash.org/<%= person.id %>" class="w-32 h-32 object-cover rounded-full" /></figure>
+      <% end %>
     </div>
   </div>
   <h2 class="w-full text-center text-2xl"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
@@ -107,7 +121,7 @@
           <h2 class="text-2xl">Parents:</h2>
           <% person.parents.each do |parent| %>
             <a href="<%= parent.id %>">
-              <p class=""> <%= parent.first_name %> <%= parent.middle_name %> <%= parent.last_name %> <%= parent.suffix %></p>
+              <p class="text-center"> <%= parent.first_name %> <%= parent.middle_name %> <%= parent.last_name %> <%= parent.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -115,7 +129,7 @@
           <h2 class="text-2xl">Siblings:</h2>
           <% person.siblings.each do |sibling| %>
             <a href="<%= sibling.id %>">
-              <p class=""> <%= sibling.first_name %> <%= sibling.middle_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
+              <p class="text-center"> <%= sibling.first_name %> <%= sibling.middle_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -123,12 +137,12 @@
           <h2 class="text-2xl">Spouse:</h2>
           <% person.spouses1.each do |spouse| %>
             <a href="<%= spouse.id %>">
-              <p class=""><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
+              <p class="text-center"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
             </a>
           <% end %>
           <% person.spouses2.each do |spouse| %>
             <a href="<%= spouse.id %>">
-              <p class=""><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
+              <p class="text-center"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -136,7 +150,7 @@
           <h2 class="text-2xl">Children:</h2>
           <% person.children.each do |child| %>
             <a href="<%= child.id %>">
-              <p class=""><%= child.first_name %> <%= child.middle_name %> <%= child.last_name %> <%= child.suffix %></p>
+              <p class="text-center"><%= child.first_name %> <%= child.middle_name %> <%= child.last_name %> <%= child.suffix %></p>
             </a>
           <% end %>
         <% end %>
