@@ -88,6 +88,8 @@ gem "cloudinary"
 gem "mail_form"
 gem 'simple_form'
 gem 'pagy', '~> 6.2' # omit patch digit
+
+gem 'rails_admin', '~> 3.0'
 gem 'ransack'
 
 group :development do
@@ -116,3 +118,4 @@ group :test do
   gem "rspec-html-matchers"
   gem "webmock"
 end
+gem "sassc-rails"

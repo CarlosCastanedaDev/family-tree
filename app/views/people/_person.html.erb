@@ -4,9 +4,9 @@
   <div class="flex justify-center m-4">
     <div class="card w-2/5 min-w-[350px] dark:bg-slate-700 shadow-xl">
       <% if person&.image_url&.present? %>
-        <figure><img src="<%= person.image_url.url %>" /></figure>
+        <figure><img src="<%= person.image_url %>" /></figure>
       <% elsif person&.user&.avatar_url&.present? %>
-        <figure><img src="<%= person.user.avatar_url.url %>" /></figure>
+        <figure><img src="<%= person.user.avatar_url %>" /></figure>
       <% else %>
         <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
       <% end %>
@@ -87,9 +87,9 @@
   <div class="flex items-center justify-center space-x-2 my-12 mx-1">
     <div class="w-32 h-32 bg-slate-600 shadow-xl border-indigo-500 rounded-full">
       <% if person&.image_url&.present? %>
-        <figure><img src="<%= person.image_url.url %>" class="w-32 h-32 object-cover rounded-full" /></figure>
+        <figure><img src="<%= person.image_url%>" class="w-32 h-32 object-cover rounded-full" /></figure>
       <% elsif person&.user&.avatar_url&.present? %>
-        <figure><img src="<%= person.user.avatar_url.url %>" class="w-32 h-32 object-cover rounded-full" /></figure>
+        <figure><img src="<%= person.user.avatar_url %>" class="w-32 h-32 object-cover rounded-full" /></figure>
       <% else %>
         <figure><img src="https://robohash.org/<%= person.id %>" class="w-32 h-32 object-cover rounded-full" /></figure>
       <% end %>
