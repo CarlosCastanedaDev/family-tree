@@ -55,7 +55,7 @@
 
 .select2-results__option--highlighted {
   color: #fff; /* text-white */
-  background-color: #4299e1; /* bg-blue-500 */
+  background-color: #793ef9; /* bg-blue-500 #4299e1 */
 }
 
 .select2-selection__rendered {
@@ -79,6 +79,7 @@
 }
 
 .select2-search__field {
+  color: #000;
   border: 1px solid #2d3748; /* border-gray-800 */
   padding: 2rem; /* Adjust as needed */
 }
