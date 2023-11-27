@@ -3,11 +3,13 @@
     <div class="card w-2/5 min-w-[350px] dark:bg-slate-700 shadow-xl">
       <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
       <div class="card-body flex flex-col items-center border-t-2">
-        <h2 class="card-title text-white text-center"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %></h2>
+        <h2 class="card-title text-white text-center"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
         <h4 class="text-xl">Birthdate</h4>
         <p class="text-white"><%= person.dob %></p>
+        <% if person.place_of_birth.present? %>
         <h4 class="text-xl">Birthplace</h4>
         <p class="text-white"><%= person.place_of_birth %></p>
+        <% end %>
         <% if person.address.present? %>
           <h4 class="text-xl">Address</h4>
           <p class="text-white text-center max-w-[180px]"><%= person.address %></p>
@@ -21,7 +23,7 @@
           <h2 class="text-2xl">Parents:</h2>
           <% person.parents.each do |parent| %>
             <a href="<%= parent.id %>">
-              <p class="text-white"> <%= parent.first_name %> <%= parent.last_name %> <%= parent.suffix %></p>
+              <p class="text-white"> <%= parent.first_name %> <%= parent.middle_name %> <%= parent.last_name %> <%= parent.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -29,7 +31,7 @@
           <h2 class="text-2xl">Siblings:</h2>
           <% person.siblings.each do |sibling| %>
             <a href="<%= sibling.id %>">
-              <p class="text-white"> <%= sibling.first_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
+              <p class="text-white"> <%= sibling.first_name %> <%= sibling.middle_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -37,12 +39,12 @@
           <h2 class="text-2xl">Spouse:</h2>
           <% person.spouses1.each do |spouse| %>
             <a href="<%= spouse.id %>">
-              <p class="text-white"><%= spouse.first_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
+              <p class="text-white"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
             </a>
           <% end %>
           <% person.spouses2.each do |spouse| %>
             <a href="<%= spouse.id %>">
-              <p class="text-white"><%= spouse.first_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
+              <p class="text-white"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -50,7 +52,7 @@
           <h2 class="text-2xl">Children:</h2>
           <% person.children.each do |child| %>
             <a href="<%= child.id %>">
-              <p class="text-white"><%= child.first_name %> <%= child.last_name %> <%= child.suffix %></p>
+              <p class="text-white"><%= child.first_name %> <%= child.middle_name %> <%= child.last_name %> <%= child.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -79,7 +81,7 @@
       <figure><img src="https://robohash.org/<%= person.id %>" class="rounded-full" /></figure>
     </div>
   </div>
-  <h2 class="w-full text-center text-2xl"><%= person.first_name %> <%= person.last_name %> <%= person.suffix %></h2>
+  <h2 class="w-full text-center text-2xl"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
   <div tabindex="0" class="collapse collapse-arrow border w-4/5 border-base-300 bg-base-200 mx-auto mt-12">
     <div class="collapse-title text-xl text-center font-medium">
       Info
@@ -105,7 +107,7 @@
           <h2 class="text-2xl">Parents:</h2>
           <% person.parents.each do |parent| %>
             <a href="<%= parent.id %>">
-              <p class=""> <%= parent.first_name %> <%= parent.last_name %> <%= parent.suffix %></p>
+              <p class=""> <%= parent.first_name %> <%= parent.middle_name %> <%= parent.last_name %> <%= parent.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -113,7 +115,7 @@
           <h2 class="text-2xl">Siblings:</h2>
           <% person.siblings.each do |sibling| %>
             <a href="<%= sibling.id %>">
-              <p class=""> <%= sibling.first_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
+              <p class=""> <%= sibling.first_name %> <%= sibling.middle_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -121,12 +123,12 @@
           <h2 class="text-2xl">Spouse:</h2>
           <% person.spouses1.each do |spouse| %>
             <a href="<%= spouse.id %>">
-              <p class=""><%= spouse.first_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
+              <p class=""><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
             </a>
           <% end %>
           <% person.spouses2.each do |spouse| %>
             <a href="<%= spouse.id %>">
-              <p class=""><%= spouse.first_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
+              <p class=""><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -134,7 +136,7 @@
           <h2 class="text-2xl">Children:</h2>
           <% person.children.each do |child| %>
             <a href="<%= child.id %>">
-              <p class=""><%= child.first_name %> <%= child.last_name %> <%= child.suffix %></p>
+              <p class=""><%= child.first_name %> <%= child.middle_name %> <%= child.last_name %> <%= child.suffix %></p>
             </a>
           <% end %>
         <% end %>
