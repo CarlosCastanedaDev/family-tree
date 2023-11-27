@@ -49,8 +49,8 @@ module.exports = {
           'base-300': '#16181d',
           'base-content': '#f5f5f5', // text color
           info: '#66c6ff',
-          success: '#87d039',
-          warning: '#e2d562',
+          success: '#2dd4bf',
+          warning: '#f43f5e',
           error: '#ff6f6f',
         },
         light: {
