@@ -3,10 +3,10 @@
   <%= link_to person_path(person.id), class: "" do %>
     <div class="flex items-center md:justify-center space-x-2 my-4 mx-1 min-h-[60px]">
       <div class="w-12 md:w-24 bg-slate-600 shadow-xl border-indigo-500 rounded-full">
-        <% if person&.image_url&.present? %>
-          <figure><img src="<%= person.image_url %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
-        <% elsif person&.user&.avatar_url&.present? %>
+        <% if person&.user&.avatar_url&.present? %>
           <figure><img src="<%= person.user.avatar_url.url %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
+        <% elsif person&.image_url&.present? %>
+          <figure><img src="<%= person.image_url %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
         <% else %>
           <figure><img src="https://robohash.org/<%= person.id %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
         <% end %>

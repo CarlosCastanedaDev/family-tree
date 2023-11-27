@@ -40,7 +40,13 @@
         <p>People tagged in this photo:</p>
         <div class="flex flex-wrap space-x-2">
           <% photo.people.each do |person| %>
-            <% if person&.user&.avatar_url&.url.present? %>
+            <% if person&.image_url&.present? %>
+              <div class="w-10 md:w-16 rounded-full">
+                <%= link_to person_path(person.id), class: "" do %>
+                  <img src="<%= person.image_url %>" alt="<%= person.first_name %>'s avatar" class="w-10 h-10 md:w-16 md:h-16 object-cover rounded-full">
+                <% end %>
+              </div>
+            <% elsif person&.user&.avatar_url&.url.present? %>
               <div class="w-10 md:w-16 rounded-full">
                 <%= link_to person_path(person.id), class: "" do %>
                   <img src="<%= person&.user&.avatar_url&.url %>" alt="<%= person.first_name %>'s avatar" class="w-10 h-10 md:w-16 md:h-16 object-cover rounded-full">

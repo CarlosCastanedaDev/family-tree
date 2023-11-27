@@ -1,10 +1,16 @@
 <div id="<%= dom_id comment %>">
   <div class="flex space-y-4 items-center">
     <%= link_to person_path(comment.author.id), class: "" do %>
-    <div class="">
-      <%= image_tag(comment.author.user.avatar_url.url, class: "w-[50px] h-[50px] rounded-full object-cover") %>
-    </div>
-      <% end %>
+      <div class="my-4">
+        <% if comment&.author&.user&.avatar_url&.present? %>
+          <figure><img src="<%= comment.author.user.avatar_url.url %>" class="w-12 h-12 md:w-20 md:h-20 object-cover rounded-full" /></figure>
+        <% elsif comment&.author&.image_url&.present? %>
+          <figure><img src="<%= comment.author.image_url %>" class="w-12 h-12 md:w-20 md:h-20 object-cover rounded-full" /></figure>
+        <% else %>
+          <figure><img src="https://robohash.org/<%= comment.author.id %>" class="w-12 h-12 md:w-20 md:h-20 object-cover rounded-full" /></figure>
+        <% end %>
+      </div>
+    <% end %>
     <div class="flex flex-col justify-start space-x-2 ml-4 flex-1">
       <div class="flex justify-between">
         <p class="text-lg font-bold pl-2">

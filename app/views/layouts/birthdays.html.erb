@@ -5,10 +5,10 @@
     <% @bdays.each do |person| %>
       <div class="m-8">
         <div class="card w-[350px] max-h-[500px] dark:bg-slate-700 shadow-xl">
-          <% if person&.image_url&.present? %>
-            <figure><img src="<%= person.image_url.url %>" /></figure>
-          <% elsif person&.user&.avatar_url&.present? %>
+          <% if person&.user&.avatar_url&.present? %>
             <figure><img src="<%= person.user.avatar_url.url %>" /></figure>
+          <% elsif person&.image_url&.present? %>
+            <figure><img src="<%= person.image_url.url %>" /></figure>
           <% else %>
             <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
           <% end %>
