@@ -91,6 +91,7 @@ gem 'pagy', '~> 6.2' # omit patch digit
 
 gem 'rails_admin', '~> 3.0'
 gem 'ransack'
+gem "sassc-rails"
 
 group :development do
   gem "web-console"
