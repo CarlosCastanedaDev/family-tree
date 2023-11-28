@@ -12,6 +12,12 @@
 #  updated_at  :datetime         not null
 #
 class Recipe < ApplicationRecord
+  validates :recipe_name, presence: true
+  validates :image_url, presence: true
+  validates :description, presence: true
+  validates :ingredients, presence: true
+  validates :directions, presence: true
+  
   belongs_to :author, required: true, class_name: "Person", foreign_key: "author_id"
 
   mount_uploader :image_url, RecipeImageUploader
