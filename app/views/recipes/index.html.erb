@@ -7,7 +7,7 @@
   <div id="recipes" class="mb-8 md:w-1/2 md:max-w-[700px]">
     <table class="table">
       <tbody>
-        <% @recipes.each do |recipe| %>
+        <% @recipes&.each do |recipe| %>
           <tr>
             <td>
               <div class="flex items-center gap-3">
