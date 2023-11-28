@@ -16,6 +16,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  suffix         :string
+#  image_url      :string
 #
 class Person < ApplicationRecord
   has_one :user
@@ -36,6 +37,8 @@ class Person < ApplicationRecord
   has_many :tagged_photos, through: :people_photos, source: :photo
 
   has_many  :comments, class_name: "Comment", foreign_key: "author_id", dependent: :destroy
+
+  has_many  :recipes, class_name: "Recipe", foreign_key: "author_id", dependent: :destroy
 
   # has_many :siblings, through: :parents, source: :children
 

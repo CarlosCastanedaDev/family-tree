@@ -13,6 +13,7 @@
 #  person_id              :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  admin                  :boolean          default(FALSE)
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:

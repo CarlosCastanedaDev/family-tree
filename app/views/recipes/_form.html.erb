@@ -1,0 +1,25 @@
+<%= simple_form_for(@recipe) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="flex justify-center">
+    <div class="form-control w-full max-w-sm mx-4 border border-slate-600 shadow-lg shadow-indigo-700/40 p-4 rounded-xl space-y-12">
+      <%= f.hidden_field :author_id, 
+              input_html: { value: current_user.id } %>
+      <%= f.input :recipe_name,
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4" } %>
+      <%= f.input :image_url,
+          label: "Choose an image",
+          as: :file,
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
+      <%= f.input :description,
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4" } %>
+      <%= f.input :ingredients,
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4" } %>
+      <%= f.input :directions,
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4" } %>
+      <div class="form-actions flex justify-center">
+        <%= f.button :submit, "Add Recipe", class: "btn btn-primary my-4" %>
+      </div>
+    </div>
+  </div>
+<% end %>
