@@ -15,10 +15,10 @@
       <%= f.input :description,
           input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4 md:placeholder:pt-2", placeholder: "Share the story behind your recipe!" } %>
       <%= f.input :ingredients,
-          label: "Ingredients (separate each ingredient with a comma)", 
+          label: "Ingredients (separate each ingredient with a semicolon)", 
           input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4 placeholder:pt-2", placeholder: "i.e. 2 tbsp suger, 1 egg..." } %>
       <%= f.input :directions,
-          label: "Directions (separate each step with a comma)",
+          label: "Directions (separate each step with a semicolon)",
           input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4 placeholder:pt-2", placeholder: "Add all items to bowl, mix.." } %>
       <div class="form-actions flex justify-center">
         <%= f.button :submit, "Add Recipe", class: "btn btn-primary my-4" %>
