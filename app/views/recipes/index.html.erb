@@ -1,0 +1,32 @@
+<h1 class="text-3xl text-white mx-auto my-8 text-center">Family Recipes</h1>
+<p class="text-lg text-white my-8 text-center mx-2">Share and discover treasured family recipes passed down through generations.</p>
+<div class="text-xl text-white mx-auto my-8 text-center">
+  <%= button_to "+ Add a recipe", new_recipe_path, method: :get, class: "btn btn-primary" %>
+</div>
+<div class="flex justify-center">
+  <div id="recipes" class="mb-8 md:w-1/2 md:max-w-[700px]">
+    <table class="table">
+      <tbody>
+        <% @recipes&.each do |recipe| %>
+          <tr>
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="avatar">
+                  <div class="mask mask-squircle w-12 h-12">
+                    <img src="<%= recipe.image_url %>" alt="Photo of <%= recipe.recipe_name %>" />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-bold"><%= recipe.recipe_name %></div>
+                </div>
+              </div>
+            </td>
+            <th>
+              <%= link_to "Recipe", recipe , class: "btn btn-ghost btn-xs" %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

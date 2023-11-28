@@ -1,0 +1,28 @@
+<%= simple_form_for(@recipe) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="flex justify-center mb-8">
+    <div class="form-control w-full max-w-sm mx-4 border border-slate-600 shadow-lg shadow-indigo-700/40 p-4 rounded-xl space-y-16">
+      <%= f.hidden_field :author_id, 
+              input_html: { value: current_user.id } %>
+      <%= f.input :recipe_name,
+          label: "Recipe Title",
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4" } %>
+      <%= f.input :image_url,
+          label: "Photo",
+          as: :file,
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs" } %>
+      <%= f.input :description,
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4 md:placeholder:pt-2", placeholder: "Share the story behind your recipe!" } %>
+      <%= f.input :ingredients,
+          label: "Ingredients (separate each ingredient with a comma)", 
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4 placeholder:pt-2", placeholder: "i.e. 2 tbsp suger, 1 egg..." } %>
+      <%= f.input :directions,
+          label: "Directions (separate each step with a comma)",
+          input_html: { class: "file-input file-input-bordered file-input-primary w-full max-w-xs pl-4 placeholder:pt-2", placeholder: "Add all items to bowl, mix.." } %>
+      <div class="form-actions flex justify-center">
+        <%= f.button :submit, "Add Recipe", class: "btn btn-primary my-4" %>
+      </div>
+    </div>
+  </div>
+<% end %>
