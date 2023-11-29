@@ -157,6 +157,11 @@
       </div>
     </div>
   </div>
+  <% if person.recipes.present? %>
+    <div class="text-center my-8">
+      <%= link_to "My Recipes", my_recipes_path(person.id), class: "btn btn-primary" %>
+    </div>
+  <% end %>
   <% if person.tagged_photos.any? %>
     <h2 class="text-2xl text-center my-8">Tagged Photos:</h2>
     <div class="flex flex-wrap justify-start max-w-[390px] mb-16 mx-auto">

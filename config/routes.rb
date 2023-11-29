@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "/birthdays" => "people#birthdays", as: :birthdays
   get '/contact_us' => 'application#contact_us', as: :contact
   get "/family/:id" => "people#family", as: :family
+  get "/recipes/my_recipes/:id" => "recipes#my_recipes", as: :my_recipes
 
   authenticate :user, ->(user) { user.admin? } do
   mount RailsAdmin::Engine, at: "/admin", as: "rails_admin"

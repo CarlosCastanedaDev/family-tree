@@ -58,6 +58,12 @@ class RecipesController < ApplicationController
     end
   end
 
+  def my_recipes
+    @my_recipes = Recipe.where(author_id: params[:id])
+    @person = Person.find(params[:id])
+    render :my_recipes
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
