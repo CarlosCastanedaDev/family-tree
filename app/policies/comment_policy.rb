@@ -1,4 +1,4 @@
-class MarriagePolicy < ApplicationPolicy
+class CommentPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
@@ -11,18 +11,22 @@ class MarriagePolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin?
+    true
   end
 
   def create?
-    user.admin?
+    true
   end
 
   def update?
-    user.admin?
+    author? || user.admin?
   end
 
   def destroy?
-    user.admin?
+    author? || user.admin?
+  end
+
+  def author?
+    record.author_id == user.person.id
   end
 end
