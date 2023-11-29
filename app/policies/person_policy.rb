@@ -15,15 +15,15 @@ class PersonPolicy < ApplicationPolicy
   end
 
   def create?
-    false
+    user.admin?
   end
 
   def update?
-    person?
+    person? || user.admin?
   end
 
   def destroy?
-    person?
+    person? || user.admin?
   end
 
   def tree?
