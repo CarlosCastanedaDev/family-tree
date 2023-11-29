@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action { authorize(@person || @people || Person) }
 
   # GET /people or /people.json
   def index
@@ -61,20 +62,20 @@ class PeopleController < ApplicationController
   end
 
   def tree
-    @people = Person.includes(:parents).all
-    @main_node = Person.find_by(id: 4)
+    @people = authorize Person.includes(:parents).all
+    @main_node = authorize Person.find_by(id: 4)
     @children = @main_node.children.sort_by { |child| child.dob.split("/").last.to_i }
     render "people/family_tree"
     end
 
     def family  
-      @main_node = Person.find_by(id: params[:id])
+      @main_node = authorize Person.find_by(id: params[:id])
       render "people/family"
     end
 
     def birthdays
       current_month = Date.today.strftime("%m")
-      @bdays = Person.where("SUBSTR(dob, 1, 2) = ?", current_month).order(Arel.sql("CAST(SUBSTR(dob, 4, 2) AS INTEGER)"))
+      @bdays = authorize Person.where("SUBSTR(dob, 1, 2) = ?", current_month).order(Arel.sql("CAST(SUBSTR(dob, 4, 2) AS INTEGER)"))
       render "layouts/birthdays"
     end
 
