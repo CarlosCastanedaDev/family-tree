@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root "welcome#index"
   get '/family_tree' => 'people#tree', as: :tree
   get "/birthdays" => "people#birthdays", as: :birthdays
-  get '/contact_us' => 'application#contact_us', as: :contact
+  get '/contact_us' => 'contact_forms#contact_us', as: :contact
   get "/family/:id" => "people#family", as: :family
   get "/recipes/my_recipes/:id" => "recipes#my_recipes", as: :my_recipes
 
