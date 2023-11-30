@@ -16,32 +16,64 @@
 </div>
 <div class="min-h-screen bg-base-100 flex flex-col justify-center items-center pt-32">
   <div class="flex flex-col items-center w-3/4 md:w-3/5">
-    <h1 class="text-3xl md:text-5xl font-bold text-center">A brief family history...</h1>
+    <h1 class="text-3xl md:text-5xl font-bold text-center mb-8">A brief family history...</h1>
   </div>
-  <div class="carousel rounded-box mt-4 w-4/5 md:w-2/3 snap-x">
-    <div class="carousel-item snap-center">
-      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040850/family_tree_photos/xczcqekh5md5w2sffe2p.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
+  <div class="carousel w-full md:w-4/5 rounded flex">
+    <div id="slide1" class="carousel-item relative w-full flex justify-center items-center">
+      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040850/family_tree_photos/xczcqekh5md5w2sffe2p.jpg"), class: "max-w-fit h-[350px] md:h-[700px] rounded-lg shadow-2xl object-cover" %>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+        <a href="#slide8" class="btn btn-circle">❮</a>
+        <a href="#slide2" class="btn btn-circle">❯</a>
+      </div>
     </div>
-    <div class="carousel-item snap-center">
-      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040852/family_tree_photos/w8f3jgh90xydrzpilwsk.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
+    <div id="slide2" class="carousel-item relative w-full flex justify-center items-center">
+      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040852/family_tree_photos/w8f3jgh90xydrzpilwsk.jpg"), class: "max-w-fit h-[350px] md:h-[700px] rounded-lg shadow-2xl" %>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+        <a href="#slide1" class="btn btn-circle">❮</a>
+        <a href="#slide3" class="btn btn-circle">❯</a>
+      </div>
     </div>
-    <div class="carousel-item snap-center">
-      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040848/family_tree_photos/fhxz8r6xvxvztmtiuazs.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
+    <div id="slide3" class="carousel-item relative w-full flex justify-center items-center">
+      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040848/family_tree_photos/fhxz8r6xvxvztmtiuazs.jpg"), class: "max-w-fit h-[350px] md:h-[700px] rounded-lg shadow-2xl" %>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+        <a href="#slide2" class="btn btn-circle">❮</a>
+        <a href="#slide4" class="btn btn-circle">❯</a>
+      </div>
     </div>
-    <div class="carousel-item snap-center">
-      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040850/family_tree_photos/ckggahczskqj5mjh57zj.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
+    <div id="slide4" class="carousel-item relative w-full flex justify-center items-center">
+      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040850/family_tree_photos/ckggahczskqj5mjh57zj.jpg"), class: "max-w-fit h-[350px] md:h-[700px] rounded-lg shadow-2xl" %>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+        <a href="#slide3" class="btn btn-circle">❮</a>
+        <a href="#slide5" class="btn btn-circle">❯</a>
+      </div>
     </div>
-    <div class="carousel-item snap-center">
-      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040849/family_tree_photos/ktj0i7jyktz55qdajak5.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
+    <div id="slide5" class="carousel-item relative w-full flex justify-center items-center">
+      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040849/family_tree_photos/ktj0i7jyktz55qdajak5.jpg"), class: "max-w-fit h-[350px] md:h-[700px] rounded-lg shadow-2xl" %>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+        <a href="#slide4" class="btn btn-circle">❮</a>
+        <a href="#slide6" class="btn btn-circle">❯</a>
+      </div>
     </div>
-    <div class="carousel-item snap-center">
-      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040849/family_tree_photos/xjwcnfjecxq5olhzsa9a.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
+    <div id="slide6" class="carousel-item relative w-full flex justify-center items-center">
+      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040849/family_tree_photos/xjwcnfjecxq5olhzsa9a.jpg"), class: "max-w-fit h-[350px] md:h-[700px] rounded-lg shadow-2xl" %>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+        <a href="#slide5" class="btn btn-circle">❮</a>
+        <a href="#slide7" class="btn btn-circle">❯</a>
+      </div>
     </div>
-    <div class="carousel-item snap-center">
-      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040848/family_tree_photos/m0jbdx3de2y9mogxwbjl.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
+    <div id="slide7" class="carousel-item relative w-full flex justify-center items-center">
+      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040848/family_tree_photos/m0jbdx3de2y9mogxwbjl.jpg"), class: "max-w-fit h-[350px] md:h-[700px] rounded-lg shadow-2xl" %>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+        <a href="#slide6" class="btn btn-circle">❮</a>
+        <a href="#slide8" class="btn btn-circle">❯</a>
+      </div>
     </div>
-    <div class="carousel-item snap-center">
-      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040848/family_tree_photos/xex6sm9zc71rpot2x7gc.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
+    <div id="slide8" class="carousel-item relative w-full flex justify-center items-center">
+      <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040848/family_tree_photos/xex6sm9zc71rpot2x7gc.jpg"), class: "max-w-fit h-[350px] md:h-[700px] rounded-lg shadow-2xl" %>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+        <a href="#slide7" class="btn btn-circle">❮</a>
+        <a href="#slide1" class="btn btn-circle">❯</a>
+      </div>
     </div>
   </div>
   <p class="pt-4 text-xl my-4 mx-8 leading-relaxed md:w-3/4">Salvador Castañeda and Concepción Gonzalez were both from the Mexican state of
