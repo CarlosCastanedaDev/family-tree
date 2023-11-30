@@ -1,19 +1,22 @@
 <div class="hero min-h-screen bg-base-100">
-  <div class="hero-content flex-col lg:flex-row">
-    <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040849/family_tree_photos/mkkmgtaficquevs40qke.jpg"), class: "max-w-full max-h-[500px] rounded-lg shadow-2xl mt-8 mx-8 md:mt-0" %>
-    <div class="flex flex-col items-center justify-center m-4 w-full lg:w-1/2 lg:ml-8">
-      <h1 class="text-2xl md:text-3xl font-bold mb-4">Castañeda Family Tree</h1>
-      <p class="text-center text-xl">Castañeda is a Spanish surname. The name's meaning is habitational, from any of various places in Santander, Asturias, and Salamanca, derived from castañeda, a collective of castaña "chestnut". The name is believed to be created by the fact that the bourgeois House of Castañeda was situated in a valley of chestnuts, thus meaning "Castle of the Chestnuts."</p>
-      <br>
-      <p class="text-center text-xl">The surname can be found primarily in Spain, Portugal and the Americas after the Spanish conquest of North and South America.</p>
+  <div class="hero-content flex-col md:flex-row">
+    <h1 class="text-2xl md:text-3xl font-bold mt-8 md:hidden">Familia Castañeda</h1>
+    <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040849/family_tree_photos/mkkmgtaficquevs40qke.jpg"), class: "max-w-full md:w-[600px] rounded-lg shadow-2xl mx-8 md:mx-2 md:mt-0" %>
+    <div class="flex flex-col items-center justify-center mt-4 w-full md:w-1/2 md:ml-4">
+      <h1 class="md:text-3xl md:font-bold md:mt-8 hidden md:block text-center mb-8">Familia Castañeda</h1>
+      <p class="leading-relaxed text-xl mx-4">
+        Welcome to the Castañeda Family Tree, a digital haven that traces the roots of our cherished lineage back to the heart of Mexico City. At the epicenter of our familial narrative are Salvador and Concepción, resilient souls who nurtured a sprawling family of 13 children—9 boys and 4 girls. Born and raised against the backdrop of Mexico City's rich cultural tapestry, each branch of our family tree weaves a unique story. 
+      </p>
+      <p class="leading-relaxed text-xl mx-4 mt-4">
+        This virtual space is dedicated to preserving and celebrating the vibrant heritage that courses through the veins of the Castañeda family. Join us on this digital journey as we explore the shared history, connections, and enduring love that define our remarkable lineage.
+      </p>
       <a class="mt-8" href="<%= tree_path %>"><button class="btn btn-primary">Show Family Tree</button></a>
     </div>
   </div>
 </div>
-<div class="min-h-screen bg-base-100 flex flex-col justify-center items-center pt-4">
+<div class="min-h-screen bg-base-100 flex flex-col justify-center items-center pt-32">
   <div class="flex flex-col items-center w-3/4 md:w-3/5">
-    <h1 class="text-3xl md:text-5xl font-bold">Family History</h1>
-    <p class="py-6 text-center text-xl">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+    <h1 class="text-3xl md:text-5xl font-bold text-center">A brief family history...</h1>
   </div>
   <div class="carousel rounded-box mt-4 w-4/5 md:w-2/3 snap-x">
     <div class="carousel-item snap-center">
@@ -41,5 +44,25 @@
       <%= image_tag ("https://res.cloudinary.com/dr27gi28j/image/upload/v1701040848/family_tree_photos/xex6sm9zc71rpot2x7gc.jpg"), class: "max-w-fit h-[350px] rounded-lg shadow-2xl" %>
     </div>
   </div>
+  <p class="pt-4 text-xl my-4 mx-8 leading-relaxed md:w-3/4">Salvador Castañeda and Concepción Gonzalez were both from the Mexican state of
+    Aguacalientes. They both lived in Aguascalientes, Aguascalientes. Salvador came from a
+    neighborhood known as “Encino” or “El Barrio de Triana.” Concepción hailed from the
+    neighborhood “El Barrio de Guadalupe.” They married sometime in 1939. Concepción was
+    still only 18 at the time, while Salvador was around 22 years of age. Shortly after marrying they
+    moved from Aguascalientes to Mexico City, Mexico.
+  </p>
+  <p class="pb-6 text-xl my-4 mx-8 leading-relaxed md:w-3/4">
+    Upon arriving at Mexico City, Salvador took on a job as a salesman. He worked for a
+    company called “La Corona” selling oils and soap/detergent products. The amount of years he
+    worked for this employer is uncertain but it is known that he eventually left this job and sought
+    employment as a salesman with Jose Perez, a well known producer of moles.
+  </p>
+  <p class="pb-6 text-xl my-4 mx-8 leading-relaxed md:w-3/4">
+    While working for Jose Perez it occurred to Salvador that he could produce his own mole. Sometime in 1964
+    he began to buy the raw materials and grind them at a local “molino” or “mill” in Necaxa. This
+    appears to be the beginning of “Moles Conchita.” Eventually, they began to use a different mill
+    located in “Los Cumbres de Maltrata.” Finally, after much hard work, Salvador and his sons
+    were able to purchase a mill of their own in the “Industrial Vallejo” zone of Mexico City.
+  </p>
 </div>
 </div>
