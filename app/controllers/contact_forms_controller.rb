@@ -1,4 +1,6 @@
 class ContactFormsController < ApplicationController
+  before_action { authorize(@contact || ContactForm) }
+
   def create
     @contact = ContactForm.new()
     @contact.name = params[:name]
@@ -15,6 +17,10 @@ class ContactFormsController < ApplicationController
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def contact_us
+    render "layouts/contact_us"
   end
 
   private

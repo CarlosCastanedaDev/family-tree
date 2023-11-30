@@ -120,3 +120,5 @@ group :test do
   gem "webmock"
 end
 
+
+gem "pundit", "~> 2.3"

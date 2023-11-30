@@ -1,17 +1,20 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action { authorize(@photo || Photo) }
   
 
   # GET /photos or /photos.json
   def index
   @pagy, @photos = pagy(Photo.all.order(created_at: :desc), items: 45)
+
   end
 
   # GET /photos/1 or /photos/1.json
   def show
   @photo = Photo.find(params[:id])
   @download_url = Cloudinary::Utils.private_download_url(@photo.image_url.file.public_id, @photo.image_url.file.format, attachment: true)
+
 end
 
   # GET /photos/new
@@ -42,6 +45,7 @@ end
 
   # PATCH/PUT /photos/1 or /photos/1.json
   def update
+    @photo
     respond_to do |format|
       if @photo.update(photo_params)
         format.html { redirect_to photo_url(@photo), notice: "Photo was successfully updated." }

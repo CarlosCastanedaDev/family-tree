@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action { authorize(@recipe || Recipe) }
 
   # GET /recipes or /recipes.json
   def index
