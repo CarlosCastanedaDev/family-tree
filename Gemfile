@@ -88,6 +88,7 @@ gem "cloudinary"
 gem "mail_form"
 gem 'simple_form'
 gem 'pagy', '~> 6.2' # omit patch digit
+gem 'postmark-rails'
 
 gem 'rails_admin', '~> 3.0'
 gem 'ransack'
@@ -107,6 +108,7 @@ group :development do
   gem "specs_to_readme"
   gem "web_git"
   gem 'htmlbeautifier'
+  gem "letter_opener"
 end
 
 group :development, :test do
