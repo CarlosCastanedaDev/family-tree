@@ -21,6 +21,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  after_create :signup_email
+
   belongs_to :person, optional: true
 
   has_many :photos, class_name: "Photo", foreign_key: "owner_id"
@@ -31,4 +33,8 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { password.present? }
 
   mount_uploader :avatar_url, AvatarUrlUploader
+  
+  def signup_email
+  ApplicationMailer.with(user: self).signup_email.deliver_now 
+end 
 end
