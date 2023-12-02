@@ -63,7 +63,7 @@ class PeopleController < ApplicationController
 
   def tree
     @people = authorize Person.includes(:parents).all
-    @main_node = authorize Person.find_by(id: 11)
+    @main_node = authorize Person.find_by(id: 4)
     @children = @main_node.children.sort_by { |child| child.dob.present? ? Date.strptime(child.dob, "%m/%d/%Y").year : Float::INFINITY }
     render "people/family_tree"
     end
