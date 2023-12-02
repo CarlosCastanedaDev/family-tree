@@ -22,7 +22,7 @@
                 label: "Upload profile picture" %>
       <div class="flex flex-col items-center justify-center space-y-2">
         <%= f.label :person_id, "Connect account (select your name)", class: "text-md" %>
-        <%= f.select :person_id, Person.left_outer_joins(:user).where(user: { person_id: nil }).order(:first_name).map { |p| ["#{p.first_name} #{p.last_name} #{p.suffix}", p.id] }, {}, { multiple: false, class: "select2 select select-bordered select-primary w-full max-w-xs" } %>
+        <%= f.select :person_id, Person.left_outer_joins(:user).where(user: { person_id: nil }).order(:first_name).map { |p| ["#{p.first_name} #{p.middle_name} #{p.last_name} #{p.suffix}", p.id] }, {}, { multiple: false, class: "select2 select select-bordered select-primary w-full max-w-xs" } %>
       </div>
       <div class="form-actions flex justify-center">
         <%= f.button :submit, "Sign up", class: "btn btn-primary my-4 shadow-lg shadow-indigo-700/40" %>
