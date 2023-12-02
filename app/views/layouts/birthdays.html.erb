@@ -4,13 +4,15 @@
   <div class="flex flex-wrap justify-center items-center w-3/4 mx-auto">
     <% @bdays.each do |person| %>
       <div class="m-8">
-        <div class="card w-[350px] max-h-[500px] dark:bg-slate-700 shadow-xl">
+        <div class="card w-[350px] max-h-[550px] dark:bg-slate-700 shadow-xl">
           <% if person&.user&.avatar_url&.present? %>
             <figure><img src="<%= person.user.avatar_url.url %>" /></figure>
           <% elsif person&.image_url&.present? %>
             <figure><img src="<%= person.image_url.url %>" /></figure>
           <% else %>
-            <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
+            <div class="h-[300px] bg-primary shadow-md border-indigo-500 rounded-t-xl flex items-center justify-center text-7xl font-bold">
+              <%= person.first_name.slice(0,1).capitalize %>
+            </div>
           <% end %>
           <div class="card-body border-t-2">
             <h2 class="card-title text-white text-center justify-center"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %>

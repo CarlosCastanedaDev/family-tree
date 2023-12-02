@@ -8,7 +8,9 @@
         <% elsif person&.user&.avatar_url&.present? %>
           <figure><img src="<%= person.user.avatar_url.url %>" class="w-12 h-12 object-cover rounded-full" /></figure>
         <% else %>
-          <figure><img src="https://robohash.org/<%= person.id %>" class="w-12 h-12 object-cover rounded-full" /></figure>
+          <div class="w-12 h-12 md:w-16 md:h-16 bg-primary shadow-md border-indigo-500 rounded-full flex items-center justify-center text-lg md:text-2xl font-bold">
+            <%= person.first_name.slice(0,1).capitalize %>
+          </div>
         <% end %>
       </div>
       <div class="grow">

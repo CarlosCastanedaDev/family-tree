@@ -21,7 +21,9 @@
               <% elsif person&.image_url&.present? %>
                 <figure><img src="<%= person.image_url %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
               <% else %>
-                <figure><img src="https://robohash.org/<%= person.id %>" class="w-12 h-12 md:w-24 md:h-24 object-cover rounded-full" /></figure>
+                <div class="w-12 h-12 md:w-24 md:h-24 bg-primary shadow-md border-indigo-500 rounded-full flex items-center justify-center text-lg md:text-2xl font-bold">
+                  <%= person.first_name.slice(0,1).capitalize %>
+                </div>
               <% end %>
             </div>
             <h2 class="w-full max-w-[220px] md:max-w-[380px] pl-4 grow md:text-2xl"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>

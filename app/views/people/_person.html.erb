@@ -2,13 +2,15 @@
 <%# Desktop View %>
 <div class="hidden md:w-3/4 md:flex md:justify-center md:items-center md:mx-auto">
   <div class="flex justify-center m-4">
-    <div class="card w-2/5 min-w-[350px] dark:bg-slate-700 shadow-xl">
+    <div class="card w-[400px] dark:bg-slate-700 shadow-xl">
       <% if person&.user&.avatar_url&.present? %>
         <figure><img src="<%= person.user.avatar_url %>" /></figure>
       <% elsif person&.image_url&.present? %>
         <figure><img src="<%= person.image_url %>" /></figure>
       <% else %>
-        <figure><img src="https://robohash.org/<%= person.id %>" /></figure>
+        <div class="h-[300px] bg-primary shadow-md border-indigo-500 flex rounded-t-xl items-center justify-center text-7xl font-bold">
+          <%= person.first_name.slice(0,1).capitalize %>
+        </div>
       <% end %>
       <div class="card-body flex flex-col items-center border-t-2">
         <h2 class="card-title text-white text-center"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
@@ -24,14 +26,14 @@
         <% end %>
         <% if person.phone_number.present? %>
           <h4 class="text-xl">Phone Number</h4>
-          <p class="text-white"><%= person.phone_number %></p>
+          <p class="text-white text-center"><%= person.phone_number %></p>
         <% end %>
         <hr class="w-full">
         <% if !person.parents.first.nil? %>
           <h2 class="text-2xl">Parents:</h2>
           <% person.parents.each do |parent| %>
             <a href="<%= parent.id %>">
-              <p class="text-white"> <%= parent.first_name %> <%= parent.middle_name %> <%= parent.last_name %> <%= parent.suffix %></p>
+              <p class="text-white text-center"> <%= parent.first_name %> <%= parent.middle_name %> <%= parent.last_name %> <%= parent.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -39,7 +41,7 @@
           <h2 class="text-2xl">Siblings:</h2>
           <% person.siblings.each do |sibling| %>
             <a href="<%= sibling.id %>">
-              <p class="text-white"> <%= sibling.first_name %> <%= sibling.middle_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
+              <p class="text-white text-center"> <%= sibling.first_name %> <%= sibling.middle_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -47,12 +49,12 @@
           <h2 class="text-2xl">Spouse:</h2>
           <% person.spouses1.each do |spouse| %>
             <a href="<%= spouse.id %>">
-              <p class="text-white"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
+              <p class="text-white text-center"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
             </a>
           <% end %>
           <% person.spouses2.each do |spouse| %>
             <a href="<%= spouse.id %>">
-              <p class="text-white"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
+              <p class="text-white text-center"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -60,7 +62,7 @@
           <h2 class="text-2xl">Children:</h2>
           <% person.children.each do |child| %>
             <a href="<%= child.id %>">
-              <p class="text-white"><%= child.first_name %> <%= child.middle_name %> <%= child.last_name %> <%= child.suffix %></p>
+              <p class="text-white text-center"><%= child.first_name %> <%= child.middle_name %> <%= child.last_name %> <%= child.suffix %></p>
             </a>
           <% end %>
         <% end %>
@@ -91,7 +93,9 @@
       <% elsif person&.image_url&.present? %>
         <figure><img src="<%= person.image_url%>" class="w-32 h-32 object-cover rounded-full" /></figure>
       <% else %>
-        <figure><img src="https://robohash.org/<%= person.id %>" class="w-32 h-32 object-cover rounded-full" /></figure>
+        <div class="w-32 h-32 bg-primary shadow-md border-indigo-500 rounded-full flex items-center justify-center text-5xl font-bold">
+          <%= person.first_name.slice(0,1).capitalize %>
+        </div>
       <% end %>
     </div>
   </div>
