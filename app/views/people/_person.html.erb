@@ -24,10 +24,14 @@
           <h4 class="text-xl">Address</h4>
           <p class="text-white text-center max-w-[180px]"><%= person.address %></p>
         <% end %>
+        <% if person.user&.email.present? %>
+          <h4 class="text-xl">Email</h4>
+          <p class=" text-center max-w-[180px]"><%= person.user.email %></p>
+        <% end %>
         <% if person.phone_number.present? %>
           <h4 class="text-xl">Phone Number</h4>
-          <p class="text-white text-center"><%= person.phone_number %></p>
-          <a href="sms:+<%= person.phone_number %>?&body=Hi">
+          <p class=""><%= person.phone_number %></p>
+          <a href="sms:+1<%= person.phone_number %>?&body=Hi <%= person.first_name %>!">
             <button class="btn btn-primary">Text <%= person.first_name %></button>
           </a>
         <% end %>
@@ -118,6 +122,10 @@
         <% if person.address.present? %>
           <h4 class="text-xl">Address</h4>
           <p class=" text-center max-w-[180px]"><%= person.address %></p>
+        <% end %>
+        <% if person.user&.email.present? %>
+          <h4 class="text-xl">Email</h4>
+          <p class=" text-center max-w-[180px]"><%= person.user.email %></p>
         <% end %>
         <% if person.phone_number.present? %>
           <h4 class="text-xl">Phone Number</h4>
