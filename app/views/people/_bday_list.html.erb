@@ -24,7 +24,7 @@
   <% end %>
   <% if person.phone_number.present? %>
     <div class="text-center">
-      <a href="sms:+<%= person.phone_number %>?&body=Happy Birthday, <%= person.first_name %>!">
+      <a href="sms:+1<%= person.phone_number %>?&body=Happy Birthday, <%= person.first_name %>!">
         <button class="btn btn-primary">Text <%= person.first_name %></button>
       </a>
     </div>
