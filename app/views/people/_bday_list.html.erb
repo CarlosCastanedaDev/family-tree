@@ -22,6 +22,13 @@
       </div>
     </div>
   <% end %>
+  <% if person.phone_number.present? %>
+    <div class="text-center">
+      <a href="sms:+<%= person.phone_number %>?&body=Happy Birthday, <%= person.first_name %>!">
+        <button class="btn btn-primary">Text <%= person.first_name %></button>
+      </a>
+    </div>
+  <% end %>
   <% unless index == @bdays.length - 1 %>
     <hr class="flex my-6 mx-auto w-4/5 bg-gray-500">
   <% end %>
