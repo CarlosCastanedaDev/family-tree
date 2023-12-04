@@ -67,12 +67,10 @@
       <p class="text-lg mb-8">
         <%= photo.caption %>
       </p>
-      <%# <hr class="border-1 border-slate-700 my-4"> %>
       <% if photo.comments.present? %>
         <% photo.comments.each do |comment| %>
           <%= render "comments/comment", comment: comment %>
         <% end %>
-        <%# <hr class="border-1 border-slate-700 my-4"> %>
       <% end %>
       <p class="text-sm my-6"><%= photo.created_at.strftime("%B %d, %Y") %></p>
       <div class="">

@@ -15,11 +15,7 @@
             </div>
           <% end %>
           <div class="card-body border-t-2">
-            <h2 class="card-title text-white text-center justify-center"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %>
-              <%# if person.maiden_name.present? %>
-              <%#= person.maiden_name %>
-              <%# end %>
-            </h2>
+            <h2 class="card-title text-white text-center justify-center"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
             <h3 class="card-body justify-center text-center text-xl text-white"><%= person.dob.slice(0,5) %> </h3>
             <div class="card-actions justify-center">
               <a href="<%= person_path(person.id) %>"><button class="btn btn-primary">Details</button></a>

@@ -35,6 +35,6 @@ class User < ApplicationRecord
   mount_uploader :avatar_url, AvatarUrlUploader
   
   def signup_email
-  ApplicationMailer.with(user: self).signup_email.deliver_now 
-end 
+    ApplicationMailer.with(user: self).signup_email.deliver_now 
+  end 
 end

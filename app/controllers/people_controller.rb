@@ -63,21 +63,21 @@ class PeopleController < ApplicationController
 
   def tree
     @people = authorize Person.includes(:parents).all
-    @main_node = authorize Person.find_by(id: 4)
+    @main_node = authorize Person.find_by(id: 4) # 4 is the id of the root node i.e. my grandfather
     @children = @main_node.children.sort_by { |child| child.dob.present? ? Date.strptime(child.dob, "%m/%d/%Y").year : Float::INFINITY }
     render "people/family_tree"
-    end
+  end
 
-    def family  
-      @main_node = authorize Person.find_by(id: params[:id])
-      render "people/family"
-    end
+  def family  
+    @main_node = authorize Person.find_by(id: params[:id])
+    render "people/family"
+  end
 
-    def birthdays
-      current_month = Date.today.strftime("%m")
-      @bdays = authorize Person.where("SUBSTR(dob, 1, 2) = ?", current_month).order(Arel.sql("CAST(SUBSTR(dob, 4, 2) AS INTEGER)"))
-      render "layouts/birthdays"
-    end
+  def birthdays
+    current_month = Date.today.strftime("%m")
+    @bdays = authorize Person.where("SUBSTR(dob, 1, 2) = ?", current_month).order(Arel.sql("CAST(SUBSTR(dob, 4, 2) AS INTEGER)"))
+    render "layouts/birthdays"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

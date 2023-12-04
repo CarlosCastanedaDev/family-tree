@@ -40,14 +40,6 @@ class Person < ApplicationRecord
 
   has_many  :recipes, class_name: "Recipe", foreign_key: "author_id", dependent: :destroy
 
-  # has_many :siblings, through: :parents, source: :children
-
-  # has_many :sibling_relationships, through: :parents, source: :children
-  # has_many :siblings, through: :sibling_relationships, source: :parents, class_name: 'Person'
-
-  # def actual_siblings
-  #   siblings.where.not(id: self.id).distinct
-  # end
   def self.ransackable_attributes(auth_object = nil)
     ["first_name"]
   end
