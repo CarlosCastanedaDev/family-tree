@@ -26,7 +26,12 @@ class RecipePolicy < ApplicationPolicy
     author? || user.admin?
   end
 
+  def my_recipes?
+    true
+  end
+
   def author?
     record.author_id == user.person.id
   end
+
 end
