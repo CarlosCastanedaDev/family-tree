@@ -1,5 +1,5 @@
-# class ContactForm < MailForm::Base
-#   attribute :name, validate: true
-#   attribute :email, validate: true
-#   attribute :message, validate: true
-# end
+class ContactForm < MailForm::Base
+  attribute :name, validate: true
+  attribute :email, validate: true
+  attribute :message, validate: true
+end
