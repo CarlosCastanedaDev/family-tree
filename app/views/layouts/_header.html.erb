@@ -1,17 +1,20 @@
 <div class="navbar bg-base-200 min-h-[80px]">
   <div class="flex-1 rounded-full">
-    <a href="<%= root_path %>" class=""><%= image_tag ("crest.webp"), class: "rounded-full h-[65px] w-[65px] md:max-h-[80px] object-fill p-2" %> </a>
+    <a href="<%= root_path %>" class=""><%= image_tag ("tilde.png"), class: "rounded-full h-[65px] w-[65px] md:max-h-[80px] object-fill p-2" %> </a>
   </div>
   <div class="flex flex-row-reverse md:flex-row items-center">
-    <div class="menu-trigger md:hidden">
-      <button class="btn btn-ghost normal-case text-xl mr-4" onclick="toggleDropdown(this);">
-        <%= image_tag("burger-menu.svg", id: "burger-menu", class: "max-h-[40px] fill-white", data: { light: asset_path('burger-menu-black.svg'), dark: asset_path('burger-menu.svg'), close_light: asset_path('close-black.svg'), close_dark: asset_path('close.svg') }) %>
-      </button>
-    </div>
+    <% if user_signed_in? %>
+      <div class="menu-trigger md:hidden">
+        <button class="btn btn-ghost normal-case text-xl mr-4" onclick="toggleDropdown(this);">
+          <%= image_tag("burger-menu.svg", id: "burger-menu", class: "max-h-[40px] fill-white", data: { light: asset_path('burger-menu-black.svg'), dark: asset_path('burger-menu.svg'), close_light: asset_path('close-black.svg'), close_dark: asset_path('close.svg') }) %>
+        </button>
+      </div>
+    <% end %>
     <ul id="dropdown-menu" class="hidden md:flex md:items-center menu menu-horizontal px-1 mr-4">
       <li><%= link_to "Family Tree", tree_path %></li>
       <li><%= link_to "Photos", photos_path %></li>
       <li><%= link_to "Birthdays", birthdays_path %></li>
+      <li><%= link_to "Recipes", recipes_path %></li>
       <li><%= link_to "Search", people_path %></li>
       <li><%= image_tag(asset_path("sun.svg"), id: "mode-display", class: "w-16 h-16", onclick: "toggleMode()", data: { light: asset_path('moon.svg'), dark: asset_path('sun.svg') }) %></li>
     </ul>
@@ -44,7 +47,7 @@
     <% else %>
       <ul class="flex space-x-4">
         <li><%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %></li>
-        <li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary mr-4" %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary mr-2" %></li>
       </ul>
     <% end %>
   </div>

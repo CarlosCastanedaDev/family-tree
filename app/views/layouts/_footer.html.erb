@@ -6,16 +6,15 @@
   <div class="flex w-full justify-around">
     <nav class="flex flex-col space-y-2">
       <header class="footer-title">Links</header>
+      <%= link_to "Family Tree", tree_path %>
       <%= link_to "Photos", photos_path %>
       <%= link_to "Birthdays", birthdays_path %>
       <%= link_to "Recipes", recipes_path %>
-      <%= link_to "Contact Us", contact_path %>
     </nav>
     <nav class="flex flex-col space-y-2">
-      <header class="footer-title">Legal</header>
-      <a class="link link-hover">Terms of use</a>
-      <a class="link link-hover">Privacy policy</a>
-      <a class="link link-hover">Cookie policy</a>
+      <header class="footer-title">Extras</header>
+      <%= link_to "Search", people_path %>
+      <%= link_to "Contact Us", contact_path %>
     </nav>
   </div>
   <div class="flex flex-col w-full items-center justify-center">
