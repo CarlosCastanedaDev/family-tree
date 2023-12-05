@@ -77,7 +77,7 @@
     </div>
     <div class="flex flex-col ml-8">
       <% if person.tagged_photos.any? %>
-        <h2 class="text-2xl text-center mb-8">Tagged Photos:</h2>
+        <h2 class="text-2xl text-center mb-8 font-medium">Tagged Photos:</h2>
         <div class="flex flex-wrap justify-start mb-16">
           <% person.tagged_photos.order(created_at: :desc).each do |photo| %>
             <div class="min-w-32 min-h-32 overflow-hidden border border-black">
@@ -108,35 +108,35 @@
   </div>
   <h2 class="w-full text-center text-2xl"><%= person.first_name %> <%= person.middle_name %> <%= person.last_name %> <%= person.suffix %></h2>
   <div tabindex="0" class="collapse border w-4/5 border-base-300 bg-base-200 mx-auto mt-12">
-    <div class="collapse-title text-xl text-center font-medium">
+    <div class="collapse-title text-xl text-center font-medium ml-4">
       Click for info
     </div>
     <div class="collapse-content">
       <div class="card-body flex flex-col items-center border-t-2">
-        <h4 class="text-xl">Birthdate</h4>
-        <p class=""><%= person.dob %></p>
+        <h4 class="text-2xl font-medium">Birthdate</h4>
+        <p class="text-lg"><%= person.dob %></p>
         <% if person.place_of_birth.present? %>
-          <h4 class="text-xl">Birthplace</h4>
-          <p class=""><%= person.place_of_birth %></p>
+          <h4 class="text-2xl font-medium">Birthplace</h4>
+          <p class="text-lg"><%= person.place_of_birth %></p>
         <% end %>
         <% if person.address.present? %>
-          <h4 class="text-xl">Address</h4>
+          <h4 class="text-2xl font-medium">Address</h4>
           <p class=" text-center max-w-[180px]"><%= person.address %></p>
         <% end %>
         <% if person.user&.email.present? %>
-          <h4 class="text-xl">Email</h4>
-          <p class=" text-center max-w-[180px]"><%= person.user.email %></p>
+          <h4 class="text-2xl font-medium">Email</h4>
+          <p class="text-lg text-center max-w-[180px]"><%= person.user.email %></p>
         <% end %>
         <% if person.phone_number.present? %>
-          <h4 class="text-xl">Phone Number</h4>
-          <p class=""><%= person.phone_number %></p>
+          <h4 class="text-2xl font-medium">Phone Number</h4>
+          <p class="text-lg"><%= person.phone_number %></p>
           <a href="sms:+1<%= person.phone_number %>?&body=Hi <%= person.first_name %>!">
             <button class="btn btn-primary">Text <%= person.first_name %></button>
           </a>
         <% end %>
         <hr class="w-full my-4">
         <% if !person.parents.first.nil? %>
-          <h2 class="text-2xl">Parents:</h2>
+          <h2 class="text-2xl font-medium">Parents:</h2>
           <% person.parents.each do |parent| %>
             <a href="<%= parent.id %>">
               <p class="text-center"> <%= parent.first_name %> <%= parent.middle_name %> <%= parent.last_name %> <%= parent.suffix %></p>
@@ -144,7 +144,7 @@
           <% end %>
         <% end %>
         <% if !person.siblings.first.nil? %>
-          <h2 class="text-2xl">Siblings:</h2>
+          <h2 class="text-2xl font-medium">Siblings:</h2>
           <% person.siblings.each do |sibling| %>
             <a href="<%= sibling.id %>">
               <p class="text-center"> <%= sibling.first_name %> <%= sibling.middle_name %> <%= sibling.last_name %> <%= sibling.suffix %></p>
@@ -152,7 +152,7 @@
           <% end %>
         <% end %>
         <% if !person.spouses1.first.nil? || !person.spouses2.first.nil? %>
-          <h2 class="text-2xl">Spouse:</h2>
+          <h2 class="text-2xl font-medium">Spouse:</h2>
           <% person.spouses1.each do |spouse| %>
             <a href="<%= spouse.id %>">
               <p class="text-center"><%= spouse.first_name %> <%= spouse.middle_name %> <%= spouse.last_name %> <%= spouse.suffix %></p>
@@ -165,7 +165,7 @@
           <% end %>
         <% end %>
         <% if !person.children.first.nil? %>
-          <h2 class="text-2xl">Children:</h2>
+          <h2 class="text-2xl font-medium">Children:</h2>
           <% person.children.each do |child| %>
             <a href="<%= child.id %>">
               <p class="text-center"><%= child.first_name %> <%= child.middle_name %> <%= child.last_name %> <%= child.suffix %></p>
