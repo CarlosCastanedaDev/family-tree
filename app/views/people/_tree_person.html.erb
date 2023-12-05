@@ -20,7 +20,7 @@
     <% end %>
     <% if person.children.any? %>
       <li class="text-xl text-center pb-2">Children</li>
-      <% person.children.order(dob: :desc).each do |child| %>
+      <% person.children.each do |child| %>
         <%= render "tree_person", person: child %>
       <% end %>
     <% end %>
