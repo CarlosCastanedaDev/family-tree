@@ -1,18 +1,12 @@
-# README
-
-This project uses Tailwind and DaisyUI for styling.
-
-To install and run, please use the following commands:
-
-```sh
-bundle install
-yarn install
-bin/dev
-```
-
 # Family Tree Project
 
 This is a family tree app with social network features built in. The app allows users to create an account and see their family tree data, add their own personal data and share photos, recipes and comments.
+
+## Table of Contents
+
+- [Main Features](#main-features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
 
 ## Main Features
 
@@ -46,16 +40,32 @@ The photos tab shows all the photos that have been uploaded to the site and a bu
 
 The birthday tab allows users to see any people that are celebrating a birthday in the current month. These people are listed in order of their birthday and if they have shared a phone number, a button will be available that will launch your messaging app with their number and a brief birthday message ready to go.
 
-![Birthdays page screenshot](https://res.cloudinary.com/dr27gi28j/image/upload/c_scale,h_500/efxqfogbqk5pc3c0qjda.jpg)
+![screenshot](https://res.cloudinary.com/dr27gi28j/image/upload/c_scale,h_500/efxqfogbqk5pc3c0qjda.jpg)
 
 ### Recipes
 
 The recipes tab allows users to upload and share a family recipe. Similar to photos, each recipe includes the info of the user that uploaded it and a picture of the item. Below that you can see a description of the item as well as an ingredient list and directions for the recipe.
 
-![Recipes page screenshot](https://res.cloudinary.com/dr27gi28j/image/upload/c_scale,h_500/dqm8qbv1cfnt42zhrvrk.jpg)
+![screenshot](https://res.cloudinary.com/dr27gi28j/image/upload/c_scale,h_500/dqm8qbv1cfnt42zhrvrk.jpg)
 
 ### Search
 
 This tab lists all the people in our family in alphabetical order (first name). At the top is a search field where you can add the first few letters of a persons name to narrow down the search. Clicking on any results takes you to their profile page.
 
-![Search page screenshot](https://res.cloudinary.com/dr27gi28j/image/upload/c_scale,h_500/lzwj5y2y4tgamduscivh.jpg)
+![screenshot](https://res.cloudinary.com/dr27gi28j/image/upload/c_scale,h_500/lzwj5y2y4tgamduscivh.jpg)
+
+## Technologies Used
+
+- Rails 7
+- Tailwind
+- DaisyUI
+
+## Installation
+
+To install and run, please use the following commands:
+
+```sh
+bundle install
+yarn install
+bin/dev
+```
