@@ -9,7 +9,7 @@
           <% if person&.user&.avatar_url&.present? %>
             <figure><img src="<%= person.user.avatar_url.url %>" /></figure>
           <% elsif person&.image_url&.present? %>
-            <figure><img src="<%= person.image_url.url %>" /></figure>
+            <figure><img src="<%= person.image_url %>" /></figure>
           <% else %>
             <div class="h-[300px] bg-primary shadow-md border-indigo-500 rounded-t-xl flex items-center justify-center text-7xl font-bold">
               <%= person.first_name.slice(0,1).capitalize %>
