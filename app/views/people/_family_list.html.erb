@@ -1,7 +1,7 @@
 <%# This view is individual children of main node in main family tree view %>
 <li>
   <%= link_to family_path(person.id), class: "" do %>
-    <div class="flex items-center justify-between md:justify-center space-x-2 my-4 mx-1">
+    <div class="flex items-center justify-between md:justify-center space-x-4 md:space-x-6 my-4 mx-1">
       <div class="w-14 md:w-24 bg-slate-600 shadow-xl border-indigo-500 rounded-full">
         <% if person&.user&.avatar_url&.present? %>
           <figure><img src="<%= person.user.avatar_url.url %>" class="w-14 h-14 md:w-24 md:h-24 object-cover rounded-full" /></figure>
