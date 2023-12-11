@@ -1,4 +1,4 @@
-# Family Tree Project
+# Family Book
 
 This is a family tree app with social network features built in. The app allows users to create an account and see their family tree data, add their own personal data and share photos, recipes and comments.
 
@@ -69,3 +69,6 @@ bundle install
 yarn install
 bin/dev
 ```
+
+### Entity Relationship Diagram
+![diagram](https://res.cloudinary.com/dr27gi28j/image/upload/v1702334031/wfhg2b2850bwrjp3npgs.png)
