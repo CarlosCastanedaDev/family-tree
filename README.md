@@ -1,4 +1,4 @@
-# Family Tree Project
+# Family Book
 
 Welcome to my family-centric platform designed for documenting genealogy and fostering connections beyond mainstream social media. The homepage greets you with a mission to weave family narratives. Click on the family tree link to explore a mobile-friendly overview, from grandparents to aunts and uncles. Dive into individual family views, complete with personal profiles, shared recipes, and tagged family photos. The platform also features collaborative birthday celebrations and an efficient search function for easy family member discovery.
 
@@ -71,3 +71,6 @@ rails db:create
 rails db:migrate
 bin/dev
 ```
+
+### Entity Relationship Diagram
+![diagram](https://res.cloudinary.com/dr27gi28j/image/upload/v1702334031/wfhg2b2850bwrjp3npgs.png)
