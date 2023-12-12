@@ -10,6 +10,6 @@
 #  updated_at :datetime         not null
 #
 class Comment < ApplicationRecord
-    belongs_to :author, required: true, class_name: "Person", foreign_key: "author_id", optional: true
-    belongs_to :photo, required: true, class_name: "Photo", foreign_key: "photo_id", optional: true
+    belongs_to :author, class_name: "Person", foreign_key: "author_id"
+    belongs_to :photo, class_name: "Photo", foreign_key: "photo_id"
 end

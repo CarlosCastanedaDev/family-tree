@@ -12,11 +12,7 @@
 #  updated_at  :datetime         not null
 #
 class Recipe < ApplicationRecord
-  validates :recipe_name, presence: true
-  validates :image_url, presence: true
-  validates :description, presence: true
-  validates :ingredients, presence: true
-  validates :directions, presence: true
+  validates_presence_of :recipe_name, :image_url, :description, :ingredients, :directions
   
   belongs_to :author, required: true, class_name: "Person", foreign_key: "author_id"
 

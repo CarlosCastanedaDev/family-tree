@@ -1,6 +1,6 @@
 # Family Tree Project
 
-This is a family tree app with social network features built in. The app allows users to create an account and see their family tree data, add their own personal data and share photos, recipes and comments.
+Welcome to my family-centric platform designed for documenting genealogy and fostering connections beyond mainstream social media. The homepage greets you with a mission to weave family narratives. Click on the family tree link to explore a mobile-friendly overview, from grandparents to aunts and uncles. Dive into individual family views, complete with personal profiles, shared recipes, and tagged family photos. The platform also features collaborative birthday celebrations and an efficient search function for easy family member discovery.
 
 ## Table of Contents
 
@@ -67,5 +67,7 @@ To install and run, please use the following commands:
 ```sh
 bundle install
 yarn install
+rails db:create
+rails db:migrate
 bin/dev
 ```

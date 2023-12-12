@@ -11,15 +11,13 @@
 #  updated_at :datetime         not null
 #
 class Photo < ApplicationRecord
-    #belongs_to :user, optional: true
-    validates :image_url, presence: true
-    validates :caption, presence: true
+    validates_presence_of :image_url, :caption
     
-    belongs_to :owner, required: true, class_name: "Person", foreign_key: "owner_id", optional: true
+    belongs_to :owner, class_name: "Person", foreign_key: "owner_id"
     has_many :people_photos, dependent: :destroy
     has_many :people, through: :people_photos
 
-    has_many  :comments, class_name: "Comment", foreign_key: "photo_id", dependent: :destroy
+    has_many :comments, class_name: "Comment", foreign_key: "photo_id", dependent: :destroy
 
     mount_uploader :image_url, ImageUrlUploader
 end
