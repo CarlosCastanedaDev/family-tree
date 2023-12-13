@@ -1,5 +1,5 @@
 module.exports = {
-  mode: 'jit',
+  // mode: 'jit',
   content: [
     './app/views/**/*.{slim,erb,jbuilder,turbo_stream,js}',
     './app/decorators/**/*.rb',
@@ -8,8 +8,7 @@ module.exports = {
     './app/assets/javascripts/**/*.js',
     './config/initializers/**/*.rb',
     './lib/components/**/*.rb',
-    './public/404.html',
-    './public/500.html',
+    './public/*.html',
   ],
   safelist: [
     {
