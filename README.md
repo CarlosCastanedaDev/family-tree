@@ -60,6 +60,14 @@ This tab lists all the people in our family in alphabetical order (first name). 
 - Tailwind
 - DaisyUI
 
+## Services Used
+
+- Cloudinary
+- Mapbox
+- Postmark
+
+Create an .env file and add your API tokens for these services
+
 ## Installation
 
 To install and run, please use the following commands:
@@ -72,5 +80,8 @@ rails db:migrate
 bin/dev
 ```
 
+For the family tree view to function you need to make one person the main node for the entire family. In the people controller in the tree method please assign a person to be the main node. You can then start creating filial and marriage relationships between people.
+
 ### Entity Relationship Diagram
+
 ![diagram](https://res.cloudinary.com/dr27gi28j/image/upload/v1702334031/wfhg2b2850bwrjp3npgs.png)
