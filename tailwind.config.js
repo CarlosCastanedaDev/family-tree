@@ -8,6 +8,8 @@ module.exports = {
     './app/assets/javascripts/**/*.js',
     './config/initializers/**/*.rb',
     './lib/components/**/*.rb',
+    './public/404.html',
+    './public/500.html',
   ],
   safelist: [
     {
