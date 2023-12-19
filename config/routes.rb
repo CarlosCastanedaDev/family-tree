@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   authenticate :user, ->(user) { user.admin? } do
-  mount RailsAdmin::Engine, at: "/admin", as: "rails_admin"
+    # I recommend adding indents inside all your blocks
+    mount RailsAdmin::Engine, at: "/admin", as: "rails_admin"
   end
   
   resources :recipes

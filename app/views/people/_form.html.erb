@@ -57,28 +57,29 @@
   dropdownMenu.classList.add('hidden', 'w-full', 'bg-gray-800', 'text-white', 'shadow-md', 'rounded-md', 'border', 'border-gray-700', 'space-y-2', 'py-2', 'z-50', 'absolute', 'mt-2', 'max-h-[200px]', 'overflow-auto');
   dropdownMenu.style.width = `${addressInput.offsetWidth}px`;
   addressInput.parentNode.appendChild(dropdownMenu);
+  // indentation helps readability
   addressInput.addEventListener('input', (event) => {
-  const query = event.target.value;
-  fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=<%= ENV['MAPBOX_TOKEN'] %>`)
-  .then(response => response.json())
-  .then(data => {
-  dropdownMenu.innerHTML = '';
-  if (data.features.length > 0) {
-  dropdownMenu.classList.remove('hidden');
-  } else {
-  dropdownMenu.classList.add('hidden');
-  }
-  data.features.forEach(feature => {
-  const option = document.createElement('div');
-  option.textContent = feature.place_name;
-  option.classList.add('px-4', 'py-2', 'hover:bg-indigo-500', 'hover:text-white', 'cursor-pointer');
-  option.addEventListener('click', () => {
-  addressInput.value = feature.place_name;
-  dropdownMenu.innerHTML = '';
-  dropdownMenu.classList.add('hidden');
-  });
-  dropdownMenu.appendChild(option);
-  });
-  });
+    const query = event.target.value;
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=<%= ENV['MAPBOX_TOKEN'] %>`)
+      .then(response => response.json())
+      .then(data => {
+        dropdownMenu.innerHTML = '';
+      if (data.features.length > 0) {
+        dropdownMenu.classList.remove('hidden');
+      } else {
+        dropdownMenu.classList.add('hidden');
+      }
+      data.features.forEach(feature => {
+      const option = document.createElement('div');
+      option.textContent = feature.place_name;
+      option.classList.add('px-4', 'py-2', 'hover:bg-indigo-500', 'hover:text-white', 'cursor-pointer');
+      option.addEventListener('click', () => {
+        addressInput.value = feature.place_name;
+        dropdownMenu.innerHTML = '';
+        dropdownMenu.classList.add('hidden');
+      });
+        dropdownMenu.appendChild(option);
+      });
+    });
   });
 </script>
