@@ -339,6 +339,7 @@ GEM
       activesupport (>= 6.1.5)
       i18n
     rchardet (1.8.0)
+    recaptcha (5.16.0)
     redis (4.8.1)
     regexp_parser (2.8.1)
     reline (0.3.7)
@@ -514,6 +515,7 @@ DEPENDENCIES
   rails_admin (~> 3.0)
   rails_db
   ransack
+  recaptcha
   redis (~> 4.0)
   rspec-html-matchers
   rspec-rails (~> 6.0.0)

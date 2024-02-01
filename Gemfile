@@ -25,6 +25,8 @@ gem "pundit", "~> 2.3"
 gem "rails", "~> 7.0.7", ">= 7.0.7"
 gem 'rails_admin', '~> 3.0'
 gem 'ransack'
+
+gem 'recaptcha'
 gem "redis", "~> 4.0"
 gem "sassc-rails"
 gem 'simple_form'
