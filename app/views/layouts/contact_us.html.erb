@@ -17,7 +17,9 @@
         <%= form.label :message %>
         <%= form.text_area :message, class: "input input-bordered input-primary w-full h-40 max-w-xs placeholder:text-slate-600"  %>
       </div>
-      <%= recaptcha_tags %>
+      <div class='flex justify-center'>
+        <%= recaptcha_tags %>
+      </div>
       <div class="form-actions flex justify-center">
         <%= form.button "Send", class: "btn btn-primary my-4 shadow-lg shadow-indigo-700/40" %>
       </div>
